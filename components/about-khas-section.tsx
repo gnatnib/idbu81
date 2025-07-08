@@ -1,0 +1,273 @@
+"use client"
+
+import { useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import {
+  CheckCircle,
+  Shield,
+  Heart,
+  Utensils,
+  Download,
+  BookOpen,
+  Users,
+  Target,
+  Award,
+  TrendingUp,
+} from "lucide-react"
+
+const khasFeatures = [
+  {
+    icon: <Utensils className="h-8 w-8" />,
+    title: "Halal",
+    description: "Semua produk kuliner telah tersertifikasi halal dan mengikuti standar syariah yang ketat.",
+    color: "bg-green-500",
+    details: [
+      "Sertifikasi halal resmi dari MUI",
+      "Bahan baku terjamin kehalalannya",
+      "Proses produksi sesuai standar halal",
+      "Pengawasan berkala oleh tim ahli",
+    ],
+  },
+  {
+    icon: <Shield className="h-8 w-8" />,
+    title: "Aman",
+    description: "Keamanan pangan terjamin dengan standar kebersihan dan sanitasi yang tinggi.",
+    color: "bg-blue-500",
+    details: [
+      "Standar kebersihan HACCP",
+      "Pelatihan hygiene untuk pelaku UMKM",
+      "Monitoring kualitas produk berkala",
+      "Sertifikasi keamanan pangan",
+    ],
+  },
+  {
+    icon: <Heart className="h-8 w-8" />,
+    title: "Sehat",
+    description: "Produk kuliner yang bergizi dan mendukung gaya hidup sehat masyarakat.",
+    color: "bg-red-500",
+    details: ["Kandungan gizi seimbang", "Penggunaan bahan alami", "Rendah pengawet buatan", "Konsultasi ahli gizi"],
+  },
+]
+
+const khasImpacts = [
+  {
+    icon: <TrendingUp className="h-6 w-6" />,
+    title: "Peningkatan Ekonomi",
+    value: "35%",
+    description: "Rata-rata peningkatan omzet UMKM yang bergabung dengan Zona KHAS",
+  },
+  {
+    icon: <Users className="h-6 w-6" />,
+    title: "Lapangan Kerja",
+    value: "150+",
+    description: "Lapangan kerja baru yang tercipta melalui program Zona KHAS",
+  },
+  {
+    icon: <Award className="h-6 w-6" />,
+    title: "Sertifikasi",
+    value: "95%",
+    description: "UMKM yang berhasil mendapat sertifikasi halal dan keamanan pangan",
+  },
+  {
+    icon: <Target className="h-6 w-6" />,
+    title: "Kepuasan Konsumen",
+    value: "4.8/5",
+    description: "Rating kepuasan konsumen terhadap produk Zona KHAS",
+  },
+]
+
+export default function AboutKhasSection() {
+  const [activeFeature, setActiveFeature] = useState(0)
+
+  const handleDownloadPedoman = () => {
+    window.open("https://kneks.go.id/storage/upload/1672398676-Buku%20Saku%20Zona%20KHAS_KNEKS_rev.pdf", "_blank")
+  }
+
+  return (
+    <section id="khas" className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-100">Zona KHAS</Badge>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Apa itu Zona KHAS?</h2>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+            Zona KHAS adalah inisiatif strategis untuk menciptakan ekosistem kuliner yang
+            <span className="font-semibold text-green-600"> Halal</span>,
+            <span className="font-semibold text-blue-600"> Aman</span>, dan
+            <span className="font-semibold text-red-600"> Sehat</span> di Klipang, Kelurahan Sendangmulyo melalui
+            pemberdayaan UMKM lokal yang berkelanjutan.
+          </p>
+
+          <Button
+            onClick={handleDownloadPedoman}
+            size="lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white transform hover:scale-105 transition-all duration-300"
+          >
+            <Download className="mr-2 h-5 w-5" />
+            Download Pedoman Zona KHAS
+          </Button>
+        </div>
+
+        {/* Main KHAS Features */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {khasFeatures.map((feature, index) => (
+            <Card
+              key={index}
+              className={`cursor-pointer transition-all duration-300 hover:shadow-xl ${
+                activeFeature === index ? "ring-2 ring-green-500 shadow-xl transform scale-105" : ""
+              }`}
+              onClick={() => setActiveFeature(index)}
+            >
+              <CardHeader className="text-center">
+                <div
+                  className={`w-16 h-16 ${feature.color} rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-lg`}
+                >
+                  {feature.icon}
+                </div>
+                <CardTitle className="text-2xl font-bold">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 text-center mb-4">{feature.description}</p>
+                {activeFeature === index && (
+                  <div className="space-y-2 animate-in slide-in-from-top-2 duration-300">
+                    {feature.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-center text-sm text-gray-700">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        <span>{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Educational Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="flex items-center mb-6">
+              <BookOpen className="h-8 w-8 text-blue-600 mr-3" />
+              <h3 className="text-2xl font-bold text-gray-900">Mengapa Zona KHAS Penting?</h3>
+            </div>
+            <div className="space-y-4 text-gray-600">
+              <p>
+                <strong className="text-gray-900">Zona KHAS</strong> merupakan konsep pengembangan kawasan kuliner yang
+                mengintegrasikan nilai-nilai halal, keamanan pangan, dan kesehatan dalam satu ekosistem yang
+                terstruktur.
+              </p>
+              <p>
+                Program ini tidak hanya fokus pada aspek ekonomi, tetapi juga memperhatikan aspek sosial, budaya, dan
+                lingkungan untuk menciptakan pembangunan yang berkelanjutan.
+              </p>
+              <p>
+                Melalui pendekatan holistik, Zona KHAS membantu UMKM lokal meningkatkan kualitas produk, daya saing, dan
+                akses pasar yang lebih luas.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl p-8 text-white">
+            <h3 className="text-2xl font-bold mb-6">Prinsip Dasar Zona KHAS</h3>
+            <div className="space-y-4">
+              {[
+                {
+                  title: "Partisipatif",
+                  desc: "Melibatkan seluruh stakeholder dalam perencanaan dan implementasi",
+                },
+                {
+                  title: "Berkelanjutan",
+                  desc: "Memperhatikan aspek ekonomi, sosial, dan lingkungan jangka panjang",
+                },
+                {
+                  title: "Inovatif",
+                  desc: "Menggunakan teknologi dan metode terkini untuk efisiensi maksimal",
+                },
+                {
+                  title: "Inklusif",
+                  desc: "Memberikan kesempatan yang sama bagi semua pelaku UMKM",
+                },
+              ].map((principle, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-1">
+                    <span className="text-sm font-bold">{index + 1}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-1">{principle.title}</h4>
+                    <p className="text-sm opacity-90">{principle.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Impact Statistics */}
+        <div className="bg-white rounded-2xl p-8 shadow-lg mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Dampak Positif Zona KHAS</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {khasImpacts.map((impact, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
+                  {impact.icon}
+                </div>
+                <div className="text-3xl font-bold text-green-600 mb-2">{impact.value}</div>
+                <h4 className="font-semibold text-gray-900 mb-2">{impact.title}</h4>
+                <p className="text-sm text-gray-600">{impact.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Benefits for Community */}
+        <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Manfaat Zona KHAS untuk Masyarakat</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Untuk Konsumen",
+                benefits: [
+                  "Jaminan produk halal dan aman",
+                  "Kualitas gizi yang terjamin",
+                  "Harga yang kompetitif",
+                  "Kemudahan akses informasi produk",
+                ],
+              },
+              {
+                title: "Untuk UMKM",
+                benefits: [
+                  "Peningkatan kapasitas produksi",
+                  "Akses ke pasar yang lebih luas",
+                  "Bantuan sertifikasi dan perizinan",
+                  "Pelatihan dan pendampingan berkelanjutan",
+                ],
+              },
+              {
+                title: "Untuk Daerah",
+                benefits: [
+                  "Peningkatan PAD dari sektor kuliner",
+                  "Branding positif sebagai zona kuliner",
+                  "Peningkatan kunjungan wisatawan",
+                  "Penciptaan lapangan kerja baru",
+                ],
+              },
+            ].map((category, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-6">
+                <h4 className="font-bold text-lg text-gray-900 mb-4 text-center">{category.title}</h4>
+                <ul className="space-y-2">
+                  {category.benefits.map((benefit, idx) => (
+                    <li key={idx} className="flex items-start text-sm text-gray-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
