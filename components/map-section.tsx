@@ -18,17 +18,17 @@ export default function MapSection() {
   const locationInfo = {
     name: "Klipang, Kelurahan Sendangmulyo",
     address: "Sendangmulyo, Kec. Tembalang, Kota Semarang, Jawa Tengah",
-    coordinates: "-7.0505, 110.4375",
+    coordinates: "-7.035777, 110.471535",
     description: "Lokasi strategis dengan akses mudah ke berbagai fasilitas umum dan transportasi.",
   }
 
   const nearbyFacilities = [
-    { name: "Kantor Kelurahan", distance: "0.5 km", type: "Pemerintahan" },
-    { name: "Pasar Tradisional", distance: "0.8 km", type: "Ekonomi" },
-    { name: "Puskesmas", distance: "1.2 km", type: "Kesehatan" },
-    { name: "Sekolah Dasar", distance: "0.3 km", type: "Pendidikan" },
-    { name: "Masjid Al-Ikhlas", distance: "0.4 km", type: "Ibadah" },
-    { name: "Terminal Bus", distance: "2.1 km", type: "Transportasi" },
+    { name: "Masjid Al-Muhajirin", distance: "40 m", type: "Tempat Ibadah" },
+    { name: "Taman Tulus Harapan", distance: "42 m", type: "Taman" },
+    { name: "Klinik Harapan Sehat", distance: "85 m", type: "Kesehatan" },
+    { name: "Rainbow GYM", distance: "70 m", type: "Olahraga" },
+    { name: "AHASS Klipang", distance: "183 m", type: "Bengkel" },
+    { name: "Yayasan Al Muhajirin", distance: "70 m", type: "Pendidikan" },
   ]
 
   return (
@@ -59,7 +59,7 @@ export default function MapSection() {
                       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
                     </div>
                   ) : (
-                    <LeafletMap center={[-7.0505, 110.4375]} zoom={15} className="rounded-lg" />
+                    <LeafletMap center={[-7.035777, 110.471535]} zoom={16} className="rounded-lg" />
                   )}
                 </div>
               </CardContent>
@@ -74,6 +74,10 @@ export default function MapSection() {
                 <div>
                   <span className="font-medium text-gray-900">Alamat Lengkap:</span>
                   <p className="text-gray-600">{locationInfo.address}</p>
+                </div>
+                <div>
+                  <span className="font-medium text-gray-900">Koordinat:</span>
+                  <p className="text-gray-600">{locationInfo.coordinates}</p>
                 </div>
                 <div>
                   <span className="font-medium text-gray-900">Akses Transportasi:</span>

@@ -1,13 +1,14 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, Users, Building, Leaf } from "lucide-react"
+import { MapPin, House, Trees,  Users } from "lucide-react"
 
 export default function VillageProfileSection() {
   const villageStats = [
-    { icon: <Users className="h-6 w-6" />, label: "Jumlah Penduduk", value: "8,542 Jiwa" },
-    { icon: <Building className="h-6 w-6" />, label: "Jumlah UMKM", value: "127 Unit" },
-    { icon: <MapPin className="h-6 w-6" />, label: "Luas Wilayah", value: "4.2 km²" },
-    { icon: <Leaf className="h-6 w-6" />, label: "Zona Hijau", value: "65%" },
+    { icon: <Users className="h-6 w-6" />, label: "Jumlah Penduduk", value: "39.468 Jiwa" },
+    { icon: <House className="h-6 w-6" />, label: "Jumlah RT", value: "282 RT" },
+    { icon: <Trees className="h-6 w-6" />, label: "Jumlah RW", value: "33 RW" },
+    { icon: <MapPin className="h-6 w-6" />, label: "Luas Wilayah", value: "± 358,57 Ha" },
+    
   ]
 
   return (
@@ -25,7 +26,7 @@ export default function VillageProfileSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img
-              src="/placeholder.svg?height=400&width=600"
+              src="/images/umkmbunderanklipang.png"
               alt="Kelurahan Sendangmulyo"
               className="rounded-2xl shadow-lg w-full h-[400px] object-cover"
             />
@@ -68,8 +69,7 @@ export default function VillageProfileSection() {
         <div className="mt-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl p-8 text-white text-center">
           <h3 className="text-2xl font-bold mb-4">Visi Kelurahan Sendangmulyo</h3>
           <p className="text-lg max-w-3xl mx-auto">
-            "Menjadi kelurahan yang mandiri, sejahtera, dan berkelanjutan dengan mengoptimalkan potensi lokal untuk
-            kesejahteraan masyarakat"
+            "Terwujudnya Kota Semarang yang Semakin Hebat yang berlandaskan Pancasila, dalam Bingkai NKRI yang Ber-Bhineka Tunggal Ika"
           </p>
         </div>
       </div>
