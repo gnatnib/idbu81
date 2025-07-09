@@ -3,10 +3,14 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+
+  const pathname = usePathname()
+  const isTeamPage = pathname === "/team"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,7 +24,7 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Beranda", href: "#hero" },
-    { name: "Program Kami", href: "#khas" },
+    { name: "Zona KHAS", href: "#khas" },
     { name: "Profil Desa", href: "#village" },
     { name: "UMKM", href: "#umkm" },
     { name: "Tim Kami", href: "#team" },
@@ -54,9 +58,11 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+        isTeamPage
           ? "bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-lg"
-          : "bg-transparent border-b border-white/10"
+          : isScrolled
+            ? "bg-white/95 backdrop-blur-lg border-b border-gray-200 shadow-lg"
+            : "bg-transparent border-b border-white/10"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -70,14 +76,14 @@ export default function Navbar() {
             <div className="flex flex-col">
               <span
                 className={`font-bold text-base md:text-lg leading-tight transition-colors duration-300 ${
-                  isScrolled ? "text-gray-900" : "text-white"
+                  isTeamPage || isScrolled ? "text-gray-900" : "text-white"
                 }`}
               >
                 KKN Zona KHAS
               </span>
               <span
                 className={`text-xs hidden sm:block transition-colors duration-300 ${
-                  isScrolled ? "text-gray-600" : "text-white/80"
+                  isTeamPage || isScrolled ? "text-gray-600" : "text-white/80"
                 }`}
               >
                 UNDIP Sendangmulyo
@@ -92,7 +98,7 @@ export default function Navbar() {
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
                 className={`font-medium transition-colors duration-300 ${
-                  isScrolled ? "text-gray-700 hover:text-green-600" : "text-white/90 hover:text-white"
+                  isTeamPage || isScrolled ? "text-gray-700 hover:text-green-600" : "text-white/90 hover:text-white"
                 }`}
               >
                 {item.name}
@@ -107,7 +113,7 @@ export default function Navbar() {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className={`transition-colors duration-300 ${
-                isScrolled ? "text-gray-900 hover:bg-gray-100" : "text-white hover:bg-white/10"
+                isTeamPage || isScrolled ? "text-gray-900 hover:bg-gray-100" : "text-white hover:bg-white/10"
               }`}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

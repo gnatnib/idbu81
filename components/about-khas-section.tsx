@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -23,6 +23,8 @@ const khasFeatures = [
     title: "Halal",
     description: "Semua produk kuliner telah tersertifikasi halal dan mengikuti standar syariah yang ketat.",
     color: "bg-green-500",
+    borderColor: "border-green-200",
+    bgColor: "bg-green-50",
     details: [
       "Sertifikasi halal resmi dari MUI",
       "Bahan baku terjamin kehalalannya",
@@ -35,6 +37,8 @@ const khasFeatures = [
     title: "Aman",
     description: "Keamanan pangan terjamin dengan standar kebersihan dan sanitasi yang tinggi.",
     color: "bg-blue-500",
+    borderColor: "border-blue-200",
+    bgColor: "bg-blue-50",
     details: [
       "Standar kebersihan HACCP",
       "Pelatihan hygiene untuk pelaku UMKM",
@@ -47,7 +51,14 @@ const khasFeatures = [
     title: "Sehat",
     description: "Produk kuliner yang bergizi dan mendukung gaya hidup sehat masyarakat.",
     color: "bg-red-500",
-    details: ["Kandungan gizi seimbang", "Penggunaan bahan alami", "Rendah pengawet buatan", "Konsultasi ahli gizi"],
+    borderColor: "border-red-200",
+    bgColor: "bg-red-50",
+    details: [
+      "Kandungan gizi seimbang",
+      "Penggunaan bahan alami",
+      "Rendah pengawet buatan",
+      "Konsultasi ahli gizi",
+    ],
   },
 ]
 
@@ -79,10 +90,11 @@ const khasImpacts = [
 ]
 
 export default function AboutKhasSection() {
-  const [activeFeature, setActiveFeature] = useState(0)
-
   const handleDownloadPedoman = () => {
-    window.open("https://kneks.go.id/storage/upload/1672398676-Buku%20Saku%20Zona%20KHAS_KNEKS_rev.pdf", "_blank")
+    window.open(
+      "https://kneks.go.id/storage/upload/1672398676-Buku%20Saku%20Zona%20KHAS_KNEKS_rev.pdf",
+      "_blank"
+    )
   }
 
   return (
@@ -109,17 +121,14 @@ export default function AboutKhasSection() {
           </Button>
         </div>
 
-        {/* Main KHAS Features */}
+        {/* KHAS Features */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {khasFeatures.map((feature, index) => (
             <Card
               key={index}
-              className={`cursor-pointer transition-all duration-300 hover:shadow-xl ${
-                activeFeature === index ? "ring-2 ring-green-500 shadow-xl transform scale-105" : ""
-              }`}
-              onClick={() => setActiveFeature(index)}
+              className={`h-full border-2 ${feature.borderColor} ${feature.bgColor} hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
             >
-              <CardHeader className="text-center">
+              <CardHeader className="text-center pb-4">
                 <div
                   className={`w-16 h-16 ${feature.color} rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-lg`}
                 >
@@ -127,18 +136,16 @@ export default function AboutKhasSection() {
                 </div>
                 <CardTitle className="text-2xl font-bold">{feature.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-center mb-4">{feature.description}</p>
-                {activeFeature === index && (
-                  <div className="space-y-2 animate-in slide-in-from-top-2 duration-300">
-                    {feature.details.map((detail, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-gray-700">
-                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
-                        <span>{detail}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
+              <CardContent className="pt-0">
+                <p className="text-gray-600 text-center mb-6">{feature.description}</p>
+                <div className="space-y-3">
+                  {feature.details.map((detail, idx) => (
+                    <div key={idx} className="flex items-center text-sm text-gray-700">
+                      <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
+                      <span>{detail}</span>
+                    </div>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -146,7 +153,7 @@ export default function AboutKhasSection() {
 
         {/* Educational Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="bg-white rounded-2xl p-8 shadow-lg h-full">
             <div className="flex items-center mb-6">
               <BookOpen className="h-8 w-8 text-blue-600 mr-3" />
               <h3 className="text-2xl font-bold text-gray-900">Mengapa Zona KHAS Penting?</h3>
@@ -154,8 +161,7 @@ export default function AboutKhasSection() {
             <div className="space-y-4 text-gray-600">
               <p>
                 <strong className="text-gray-900">Zona KHAS</strong> merupakan konsep pengembangan kawasan kuliner yang
-                mengintegrasikan nilai-nilai halal, keamanan pangan, dan kesehatan dalam satu ekosistem yang
-                terstruktur.
+                mengintegrasikan nilai-nilai halal, keamanan pangan, dan kesehatan dalam satu ekosistem yang terstruktur.
               </p>
               <p>
                 Program ini tidak hanya fokus pada aspek ekonomi, tetapi juga memperhatikan aspek sosial, budaya, dan
@@ -167,27 +173,14 @@ export default function AboutKhasSection() {
               </p>
             </div>
           </div>
-
-          <div className="bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl p-8 text-white h-full">
             <h3 className="text-2xl font-bold mb-6">Prinsip Dasar Zona KHAS</h3>
             <div className="space-y-4">
               {[
-                {
-                  title: "Partisipatif",
-                  desc: "Melibatkan seluruh stakeholder dalam perencanaan dan implementasi",
-                },
-                {
-                  title: "Berkelanjutan",
-                  desc: "Memperhatikan aspek ekonomi, sosial, dan lingkungan jangka panjang",
-                },
-                {
-                  title: "Inovatif",
-                  desc: "Menggunakan teknologi dan metode terkini untuk efisiensi maksimal",
-                },
-                {
-                  title: "Inklusif",
-                  desc: "Memberikan kesempatan yang sama bagi semua pelaku UMKM",
-                },
+                { title: "Partisipatif", desc: "Melibatkan seluruh stakeholder dalam perencanaan dan implementasi" },
+                { title: "Berkelanjutan", desc: "Memperhatikan aspek ekonomi, sosial, dan lingkungan jangka panjang" },
+                { title: "Inovatif", desc: "Menggunakan teknologi dan metode terkini untuk efisiensi maksimal" },
+                { title: "Inklusif", desc: "Memberikan kesempatan yang sama bagi semua pelaku UMKM" },
               ].map((principle, index) => (
                 <div key={index} className="flex items-start">
                   <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 mt-1">
@@ -203,7 +196,7 @@ export default function AboutKhasSection() {
           </div>
         </div>
 
-        {/* Impact Statistics */}
+        {/* Impacts */}
         <div className="bg-white rounded-2xl p-8 shadow-lg mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Dampak Positif Zona KHAS</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -220,7 +213,7 @@ export default function AboutKhasSection() {
           </div>
         </div>
 
-        {/* Benefits for Community */}
+        {/* Community Benefits */}
         <div className="bg-white rounded-2xl p-8 shadow-lg">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Manfaat Zona KHAS untuk Masyarakat</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -253,7 +246,7 @@ export default function AboutKhasSection() {
                 ],
               },
             ].map((category, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6">
+              <div key={index} className="bg-gray-50 rounded-lg p-6 h-full">
                 <h4 className="font-bold text-lg text-gray-900 mb-4 text-center">{category.title}</h4>
                 <ul className="space-y-2">
                   {category.benefits.map((benefit, idx) => (

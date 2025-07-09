@@ -4,8 +4,9 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Star, Eye } from "lucide-react"
+import { Star, Eye, Utensils, Coffee, Soup, Flame, Cookie, Sandwich } from "lucide-react"
 import UmkmModal from "./umkm-modal"
+import GlowFilterMenu from "./glow-filter-menu"
 
 const umkmData = [
   {
@@ -100,20 +101,62 @@ const umkmData = [
   },
 ]
 
+const filterItems = [
+  {
+    id: "Semua",
+    label: "Semua",
+    gradient: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(79,70,229,0.06) 50%, rgba(67,56,202,0) 100%)",
+    iconColor: "text-indigo-500",
+    icon: <Utensils className="h-4 w-4" />,
+  },
+  {
+    id: "Makanan Tradisional",
+    label: "Makanan Tradisional",
+    gradient: "radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)",
+    iconColor: "text-green-500",
+    icon: <Utensils className="h-4 w-4" />,
+  },
+  {
+    id: "Makanan Berkuah",
+    label: "Makanan Berkuah",
+    gradient: "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(37,99,235,0.06) 50%, rgba(29,78,216,0) 100%)",
+    iconColor: "text-blue-500",
+    icon: <Soup className="h-4 w-4" />,
+  },
+  {
+    id: "Minuman Tradisional",
+    label: "Minuman Tradisional",
+    gradient: "radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(2,132,199,0.06) 50%, rgba(3,105,161,0) 100%)",
+    iconColor: "text-sky-500",
+    icon: <Coffee className="h-4 w-4" />,
+  },
+  {
+    id: "Makanan Bakar",
+    label: "Makanan Bakar",
+    gradient: "radial-gradient(circle, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.06) 50%, rgba(185,28,28,0) 100%)",
+    iconColor: "text-red-500",
+    icon: <Flame className="h-4 w-4" />,
+  },
+  {
+    id: "Makanan Goreng",
+    label: "Makanan Goreng",
+    gradient: "radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)",
+    iconColor: "text-orange-500",
+    icon: <Sandwich className="h-4 w-4" />,
+  },
+  {
+    id: "Kue & Snack",
+    label: "Kue & Snack",
+    gradient: "radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(219,39,119,0.06) 50%, rgba(190,24,93,0) 100%)",
+    iconColor: "text-pink-500",
+    icon: <Cookie className="h-4 w-4" />,
+  },
+]
+
 export default function UmkmSection() {
   const [selectedUmkm, setSelectedUmkm] = useState<(typeof umkmData)[0] | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [filter, setFilter] = useState("Semua")
-
-  const categories = [
-    "Semua",
-    "Makanan Tradisional",
-    "Makanan Berkuah",
-    "Minuman Tradisional",
-    "Makanan Bakar",
-    "Makanan Goreng",
-    "Kue & Snack",
-  ]
 
   const filteredUmkm = filter === "Semua" ? umkmData : umkmData.filter((umkm) => umkm.category === filter)
 
@@ -138,21 +181,8 @@ export default function UmkmSection() {
             sehat.
           </p>
         </div>
-
-        {/* Filter Categories */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={filter === category ? "default" : "outline"}
-              onClick={() => setFilter(category)}
-              className={`transform hover:scale-105 transition-all duration-300 text-sm ${
-                filter === category ? "bg-green-600 hover:bg-green-700" : ""
-              }`}
-            >
-              {category}
-            </Button>
-          ))}
+        <div className="flex justify-center mb-12">
+            <GlowFilterMenu items={filterItems} activeFilter={filter} onFilterChange={setFilter} />
         </div>
 
         {/* UMKM Grid */}
