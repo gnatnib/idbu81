@@ -40,7 +40,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { name: "Beranda", href: "#hero" },
-                { name: "Zona KHAS", href: "#khas" },
+                { name: "Program Kami", href: "#khas" },
                 { name: "Profil Desa", href: "#village" },
                 { name: "UMKM", href: "#umkm" },
                 { name: "Tim Kami", href: "#team" },

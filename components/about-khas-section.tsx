@@ -89,7 +89,7 @@ export default function AboutKhasSection() {
     <section id="khas" className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-100">Zona KHAS</Badge>
+          <Badge className="mb-4 bg-green-100 text-green-800 hover:bg-green-100">Program Kami</Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Apa itu Zona KHAS?</h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
             Zona KHAS adalah inisiatif strategis untuk menciptakan ekosistem kuliner yang
