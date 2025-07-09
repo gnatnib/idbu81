@@ -24,7 +24,7 @@ export default function Navbar() {
 
   const navItems = [
     { name: "Beranda", href: "#hero" },
-    { name: "Zona KHAS", href: "#khas" },
+    { name: "Program Kami", href: "#khas" },
     { name: "Profil Desa", href: "#village" },
     { name: "UMKM", href: "#umkm" },
     { name: "Tim Kami", href: "#team" },
@@ -79,14 +79,14 @@ export default function Navbar() {
                   isTeamPage || isScrolled ? "text-gray-900" : "text-white"
                 }`}
               >
-                KKN Zona KHAS
+                Zona KHAS
               </span>
               <span
                 className={`text-xs hidden sm:block transition-colors duration-300 ${
                   isTeamPage || isScrolled ? "text-gray-600" : "text-white/80"
                 }`}
               >
-                UNDIP Sendangmulyo
+                IDBU-81 Universitas Diponegoro
               </span>
             </div>
           </div>
