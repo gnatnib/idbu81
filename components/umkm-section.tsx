@@ -4,100 +4,122 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Star, Eye, Utensils, Coffee, Soup, Flame, Cookie, Sandwich } from "lucide-react"
+import { Star, Eye, Utensils, Coffee, Soup, Flame, Cookie, Sandwich, FileText } from "lucide-react"
 import UmkmModal from "./umkm-modal"
 import GlowFilterMenu from "./glow-filter-menu"
 
-const umkmData = [
+interface UmkmData {
+  id: number
+  name: string
+  category: string
+  description: string
+  image: string
+  rating: number
+  address: string
+  phone: string
+  hours: string
+  specialties: string[]
+  price: string
+  certificateId: string | null
+  owner: string
+}
+
+const umkmData: UmkmData[] = [
   {
     id: 1,
-    name: "Warung Bu Sari",
+    name: "Nasi Goreng Tegal Bang Awi '77'",
     category: "Makanan Tradisional",
     description:
-      "Spesialis gudeg dan nasi gudeg dengan cita rasa autentik Yogyakarta. Warung yang sudah berdiri sejak 1995 ini menggunakan resep turun temurun dengan bumbu rempah pilihan dan santan kelapa segar. Setiap hari menyajikan gudeg dengan cita rasa yang konsisten dan pelayanan yang ramah.",
+      "Nasi goreng khas Tegal dengan cita rasa autentik dan bumbu yang meresap sempurna. Dilengkapi dengan berbagai pilihan menu seperti kwetiaw, mie goreng, cap cai, dan bihun goreng. Menggunakan bahan-bahan segar dengan teknik masak tradisional Tegal.",
     image: "/placeholder.svg?height=200&width=300",
-    rating: 4.8,
-    address: "Jl. Klipang Raya No. 15, Sendangmulyo, Tembalang, Semarang",
+    rating: 4.7,
+    address: "Jl. Tulus Harapan No.1 c Blok A, Sendangmulyo, Kec. Tembalang, Kota Semarang",
     phone: "+62 812-3456-7890",
-    hours: "06:00 - 22:00 WIB",
-    specialties: ["Gudeg Jogja", "Nasi Gudeg Komplit", "Ayam Kampung", "Tahu Bacem"],
-    certifications: ["Halal MUI", "PIRT", "Hygiene A"],
-    price: "Rp 15.000 - 35.000",
+    hours: "10:00 - 22:00 WIB",
+    specialties: ["Nasi Goreng", "Kwetiaw", "Mie Goreng", "Cap Cai", "Bihun Goreng", "Es Jeruk"],
+    price: "Rp 12.000 - 25.000",
+    certificateId: "ID33410025572450825",
+    owner: "KHOLIDIN ILMI"
   },
   {
     id: 2,
-    name: "Bakso Mas Joko",
+    name: "Aero Sop Iga (Bu Roni)",
     category: "Makanan Berkuah",
     description:
-      "Bakso sapi asli dengan kuah kaldu yang gurih dan daging yang kenyal. Menggunakan daging sapi pilihan tanpa bahan pengawet dan penyedap buatan. Kuah kaldu dimasak selama 8 jam untuk menghasilkan rasa yang kaya dan bergizi.",
+      "Sop iga sapi dengan kuah bening yang segar dan daging yang empuk. Dilengkapi dengan nasi uduk ayam dan soto Betawi yang nikmat. Kuah kaldu dimasak dengan bumbu tradisional untuk menghasilkan rasa yang kaya dan bergizi.",
     image: "/placeholder.svg?height=200&width=300",
-    rating: 4.7,
-    address: "Jl. Sendangmulyo No. 28, Sendangmulyo, Tembalang, Semarang",
+    rating: 4.8,
+    address: "Taman Kuliner, Jl. Tulus Harapan No. 1C Blok A, Sendangmulyo, Kec. Tembalang, Kota Semarang",
     phone: "+62 813-4567-8901",
-    hours: "10:00 - 21:00 WIB",
-    specialties: ["Bakso Sapi Jumbo", "Bakso Urat", "Mie Ayam", "Pangsit Goreng"],
-    certifications: ["Halal MUI", "PIRT"],
-    price: "Rp 12.000 - 25.000",
+    hours: "11:00 - 21:00 WIB",
+    specialties: ["Sop Iga", "Nasi Uduk Ayam", "Soto Betawi"],
+    price: "Rp 18.000 - 35.000",
+    certificateId: "ID33410025573250825",
+    owner: "SARONI"
   },
   {
     id: 3,
-    name: "Es Dawet Mbak Tini",
-    category: "Minuman Tradisional",
+    name: "Ayam Bakar & Kremes Tulus",
+    category: "Makanan Bakar",
     description:
-      "Es dawet segar dengan santan kelapa muda dan gula merah asli dari Jawa Tengah. Dawet dibuat fresh setiap hari dengan tepung beras berkualitas dan pewarna alami dari daun suji. Santan kelapa diperas langsung dari kelapa segar.",
+      "Ayam bakar dan ayam kremes dengan bumbu khas yang meresap hingga ke dalam. Dibakar dengan arang untuk menghasilkan aroma dan rasa yang khas. Ayam dipilih yang segar dan berkualitas dengan bumbu racikan sendiri.",
     image: "/placeholder.svg?height=200&width=300",
-    rating: 4.9,
-    address: "Jl. Klipang Tengah No. 7, Sendangmulyo, Tembalang, Semarang",
+    rating: 4.6,
+    address: "Taman Kuliner Tulus Harapan, Kota Semarang, Jawa Tengah",
     phone: "+62 814-5678-9012",
-    hours: "08:00 - 18:00 WIB",
-    specialties: ["Es Dawet Ayu", "Es Kelapa Muda", "Cendol", "Es Campur"],
-    certifications: ["Halal MUI", "PIRT", "Hygiene A"],
-    price: "Rp 5.000 - 15.000",
+    hours: "16:00 - 23:00 WIB",
+    specialties: ["Ayam Bakar", "Ayam Kremes"],
+    price: "Rp 15.000 - 30.000",
+    certificateId: "ID33410025575410825",
+    owner: "ERDO WICAKSONO"
   },
   {
     id: 4,
-    name: "Sate Kambing Pak Hadi",
-    category: "Makanan Bakar",
+    name: "Gado-gado dan Tahu Gimbal Bu Ir",
+    category: "Makanan Tradisional",
     description:
-      "Sate kambing muda dengan bumbu kacang spesial dan lalapan segar. Daging kambing dipilih dari kambing muda yang sehat dan segar. Bumbu kacang dibuat dengan resep rahasia keluarga yang telah turun temurun selama 3 generasi.",
+      "Gado-gado segar dengan bumbu kacang yang gurih dan tahu gimbal khas Semarang. Sayuran segar dipilih setiap hari dan bumbu kacang dibuat dengan resep tradisional. Tahu gimbal dibuat dengan teknik khusus untuk tekstur yang pas.",
     image: "/placeholder.svg?height=200&width=300",
-    rating: 4.6,
-    address: "Jl. Sendangmulyo Barat No. 42, Sendangmulyo, Tembalang, Semarang",
+    rating: 4.5,
+    address: "Taman Kuliner Tulus Harapan, Sendangmulyo, Tembalang, Semarang",
     phone: "+62 815-6789-0123",
-    hours: "17:00 - 23:00 WIB",
-    specialties: ["Sate Kambing", "Tongseng Kambing", "Gulai Kambing", "Sop Kambing"],
-    certifications: ["Halal MUI", "PIRT"],
-    price: "Rp 20.000 - 45.000",
+    hours: "08:00 - 18:00 WIB",
+    specialties: ["Gado-gado", "Tahu Gimbal", "Lontong", "Ketupat"],
+    price: "Rp 8.000 - 20.000",
+    certificateId: null,
+    owner: "IBU IR"
   },
   {
     id: 5,
-    name: "Pecel Lele Bu Yanti",
-    category: "Makanan Goreng",
+    name: "Nasi Goreng dan Gongso Pak Kas",
+    category: "Makanan Tradisional",
     description:
-      "Pecel lele crispy dengan sambal terasi pedas dan lalapan lengkap. Lele segar dari kolam sendiri, digoreng dengan tepung bumbu rahasia hingga crispy di luar dan lembut di dalam. Sambal terasi dibuat fresh dengan cabai pilihan.",
+      "Nasi goreng dan gongso dengan berbagai pilihan lauk seperti ayam, babat, paru, telur, dan iso. Gongso merupakan makanan khas dengan kuah yang gurih dan bumbu yang kaya rempah. Semua dimasak dengan api besar untuk hasil yang sempurna.",
     image: "/placeholder.svg?height=200&width=300",
-    rating: 4.5,
-    address: "Jl. Klipang Selatan No. 33, Sendangmulyo, Tembalang, Semarang",
+    rating: 4.7,
+    address: "Jl. Tulus Harapan No.1 c Blok A, Sendangmulyo, Kec. Tembalang, Kota Semarang",
     phone: "+62 816-7890-1234",
-    hours: "16:00 - 22:00 WIB",
-    specialties: ["Pecel Lele", "Ayam Penyet", "Tempe Mendoan", "Tahu Crispy"],
-    certifications: ["Halal MUI", "PIRT", "Hygiene B"],
-    price: "Rp 10.000 - 30.000",
+    hours: "10:00 - 22:00 WIB",
+    specialties: ["Nasi Goreng Ayam", "Gongso Ayam", "Gongso Babat", "Nasi Goreng Babat", "Gongso Paru", "Nasi Goreng Iso"],
+    price: "Rp 12.000 - 28.000",
+    certificateId: "ID33410025573270825",
+    owner: "DARNIA"
   },
   {
     id: 6,
-    name: "Kue Tradisional Mbak Rina",
-    category: "Kue & Snack",
+    name: "Sate Cak JUNED",
+    category: "Makanan Bakar",
     description:
-      "Aneka kue tradisional dan modern untuk oleh-oleh dan acara spesial. Dibuat dengan bahan-bahan berkualitas tinggi dan resep tradisional yang telah dimodifikasi untuk cita rasa modern. Cocok untuk berbagai acara dan sebagai oleh-oleh khas Semarang.",
+      "Sate ayam dan kambing dengan bumbu kacang spesial dan sambal yang pedas menggigit. Daging dipilih yang segar dan empuk, dibakar dengan arang untuk aroma yang harum. Dilengkapi dengan lontong, timun, dan bawang merah.",
     image: "/placeholder.svg?height=200&width=300",
-    rating: 4.8,
-    address: "Jl. Sendangmulyo Timur No. 19, Sendangmulyo, Tembalang, Semarang",
+    rating: 4.6,
+    address: "Taman Kuliner Tulus Harapan, Sendangmulyo, Tembalang, Semarang",
     phone: "+62 817-8901-2345",
-    hours: "07:00 - 19:00 WIB",
-    specialties: ["Klepon", "Onde-onde", "Kue Lapis", "Wingko Babat"],
-    certifications: ["Halal MUI", "PIRT", "Hygiene A"],
-    price: "Rp 3.000 - 20.000",
+    hours: "17:00 - 23:00 WIB",
+    specialties: ["Sate Ayam", "Sate Kambing", "Lontong", "Sambal Kacang"],
+    price: "Rp 15.000 - 35.000",
+    certificateId: null,
+    owner: "CAK JUNED"
   },
 ]
 
@@ -124,43 +146,22 @@ const filterItems = [
     icon: <Soup className="h-4 w-4" />,
   },
   {
-    id: "Minuman Tradisional",
-    label: "Minuman Tradisional",
-    gradient: "radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(2,132,199,0.06) 50%, rgba(3,105,161,0) 100%)",
-    iconColor: "text-sky-500",
-    icon: <Coffee className="h-4 w-4" />,
-  },
-  {
     id: "Makanan Bakar",
     label: "Makanan Bakar",
     gradient: "radial-gradient(circle, rgba(239,68,68,0.15) 0%, rgba(220,38,38,0.06) 50%, rgba(185,28,28,0) 100%)",
     iconColor: "text-red-500",
     icon: <Flame className="h-4 w-4" />,
   },
-  {
-    id: "Makanan Goreng",
-    label: "Makanan Goreng",
-    gradient: "radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)",
-    iconColor: "text-orange-500",
-    icon: <Sandwich className="h-4 w-4" />,
-  },
-  {
-    id: "Kue & Snack",
-    label: "Kue & Snack",
-    gradient: "radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(219,39,119,0.06) 50%, rgba(190,24,93,0) 100%)",
-    iconColor: "text-pink-500",
-    icon: <Cookie className="h-4 w-4" />,
-  },
 ]
 
 export default function UmkmSection() {
-  const [selectedUmkm, setSelectedUmkm] = useState<(typeof umkmData)[0] | null>(null)
+  const [selectedUmkm, setSelectedUmkm] = useState<UmkmData | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [filter, setFilter] = useState("Semua")
 
   const filteredUmkm = filter === "Semua" ? umkmData : umkmData.filter((umkm) => umkm.category === filter)
 
-  const handleViewDetails = (umkm: (typeof umkmData)[0]) => {
+  const handleViewDetails = (umkm: UmkmData) => {
     setSelectedUmkm(umkm)
     setIsModalOpen(true)
   }
@@ -168,6 +169,11 @@ export default function UmkmSection() {
   const handleCloseModal = () => {
     setIsModalOpen(false)
     setSelectedUmkm(null)
+  }
+
+  const handleViewCertificate = (certificateId: string) => {
+    const pdfPath = `/certificates/${certificateId}.pdf`
+    window.open(pdfPath, '_blank')
   }
 
   return (
@@ -213,14 +219,27 @@ export default function UmkmSection() {
               </CardHeader>
               <CardContent className="pt-0">
                 <p className="text-gray-600 mb-4 text-sm line-clamp-2">{umkm.description}</p>
-                <Button
-                  onClick={() => handleViewDetails(umkm)}
-                  className="w-full bg-green-600 hover:bg-green-700 transition-colors duration-300"
-                  size="sm"
-                >
-                  <Eye className="mr-2 h-4 w-4" />
-                  Lihat Detail
-                </Button>
+                <div className="flex gap-2">
+                  <Button
+                    onClick={() => handleViewDetails(umkm)}
+                    className="flex-1 bg-green-600 hover:bg-green-700 transition-colors duration-300"
+                    size="sm"
+                  >
+                    <Eye className="mr-2 h-4 w-4" />
+                    Lihat Detail
+                  </Button>
+                  {umkm.certificateId && (
+                    <Button
+                      onClick={() => handleViewCertificate(umkm.certificateId!)}
+                      variant="outline"
+                      className="flex-1 border-green-600 text-green-600 hover:bg-green-50 transition-colors duration-300"
+                      size="sm"
+                    >
+                      <FileText className="mr-2 h-4 w-4" />
+                      Sertifikat Halal
+                    </Button>
+                  )}
+                </div>
               </CardContent>
             </Card>
           ))}
