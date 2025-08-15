@@ -62,30 +62,30 @@ const khasFeatures = [
   },
 ]
 
-const khasImpacts = [
-  {
-    icon: <TrendingUp className="h-6 w-6" />,
-    title: "Peningkatan Ekonomi",
-    value: "35%",
-    description: "Rata-rata peningkatan omzet UMKM yang bergabung dengan Zona KHAS",
-  },
+const khasSteps = [
   {
     icon: <Users className="h-6 w-6" />,
-    title: "Lapangan Kerja",
-    value: "150+",
-    description: "Lapangan kerja baru yang tercipta melalui program Zona KHAS",
+    title: "Identifikasi UMKM",
+    step: "1",
+    description: "Mengidentifikasi minimal 10 UMKM kuliner di wilayah target untuk bergabung dalam zona KHAS",
+  },
+  {
+    icon: <BookOpen className="h-6 w-6" />,
+    title: "Pengurusan NIB",
+    step: "2",
+    description: "Membantu pembuatan Nomor Induk Berusaha (NIB) untuk seluruh pelaku usaha yang terlibat",
   },
   {
     icon: <Award className="h-6 w-6" />,
-    title: "Sertifikasi",
-    value: "95%",
-    description: "UMKM yang berhasil mendapat sertifikasi halal dan keamanan pangan",
+    title: "Sertifikasi Halal",
+    step: "3",
+    description: "Pembuatan dan penerbitan sertifikat halal melalui website siHalal untuk semua produk kuliner",
   },
   {
-    icon: <Target className="h-6 w-6" />,
-    title: "Kepuasan Konsumen",
-    value: "4.8/5",
-    description: "Rating kepuasan konsumen terhadap produk Zona KHAS",
+    icon: <Shield className="h-6 w-6" />,
+    title: "Labelisasi Higienis",
+    step: "4",
+    description: "Proses cek sample makanan oleh puskesmas daerah dan pemberian label higienis",
   },
 ]
 
@@ -196,18 +196,23 @@ export default function AboutKhasSection() {
           </div>
         </div>
 
-        {/* Impacts */}
+        {/* Steps */}
         <div className="bg-white rounded-2xl p-8 shadow-lg mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Dampak Positif Zona KHAS</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Langkah-langkah Pewujudan Zona KHAS</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {khasImpacts.map((impact, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
-                  {impact.icon}
+            {khasSteps.map((step, index) => (
+              <div key={index} className="text-center relative">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 relative">
+                  {step.icon}
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                    {step.step}
+                  </div>
                 </div>
-                <div className="text-3xl font-bold text-green-600 mb-2">{impact.value}</div>
-                <h4 className="font-semibold text-gray-900 mb-2">{impact.title}</h4>
-                <p className="text-sm text-gray-600">{impact.description}</p>
+                <h4 className="font-semibold text-gray-900 mb-2">{step.title}</h4>
+                <p className="text-sm text-gray-600">{step.description}</p>
+                {index < khasSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-8 left-full w-6 border-t-2 border-dashed border-gray-300 transform -translate-x-3"></div>
+                )}
               </div>
             ))}
           </div>

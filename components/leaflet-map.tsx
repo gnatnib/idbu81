@@ -97,10 +97,10 @@ export default function LeafletMap({ center, zoom, className = "" }: LeafletMapP
 
       // Add area boundary circle to show the Klipang area
       const areaCircle = window.L.circle(center, {
-        color: '#3b82f6',
-        fillColor: '#3b82f6',
+        color: '#206d16ff',
+        fillColor: '#206d16ff',
         fillOpacity: 0.1,
-        radius: 300
+        radius: 30
       }).addTo(map)
 
       areaCircle.bindPopup(`

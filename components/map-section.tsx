@@ -59,7 +59,7 @@ export default function MapSection() {
                       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
                     </div>
                   ) : (
-                    <LeafletMap center={[-7.035777, 110.471535]} zoom={16} className="rounded-lg" />
+                    <LeafletMap center={[-7.035777, 110.471535]} zoom={19} className="rounded-lg" />
                   )}
                 </div>
               </CardContent>
@@ -87,7 +87,7 @@ export default function MapSection() {
                 </div>
                 <div>
                   <span className="font-medium text-gray-900">Jam Operasional UMKM:</span>
-                  <p className="text-gray-600">Umumnya 06:00 - 22:00 WIB</p>
+                  <p className="text-gray-600">Umumnya 10:00 - 22:00 WIB</p>
                 </div>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function MapSection() {
                   </div>
                   <div className="flex items-center">
                     <Phone className="h-4 w-4 mr-2" />
-                    <span>Info: +62 812-3456-7890</span>
+                    <span>Info: Hudroni +62 821-3768-0648</span>
                   </div>
                 </div>
               </CardContent>

@@ -10,16 +10,16 @@ export default function TeamSection() {
     {
       icon: <GraduationCap className="h-6 w-6" />,
       title: "Multi Disiplin",
-      description: "Tim dari berbagai jurusan: Teknik, Gizi, Manajemen, Komunikasi",
+      description: "Mahasiswa dari berbagai jurusan",
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: "6 Anggota Aktif",
-      description: "Mahasiswa berpengalaman dari Universitas Diponegoro",
+      title: "46 Anggota Aktif",
+      description: "Mahasiswa dari Universitas Diponegoro",
     },
     {
       icon: <ArrowRight className="h-6 w-6" />,
-      title: "Fokus Implementasi",
+      title: "Fokus Pada Implementasi",
       description: "Mengutamakan solusi praktis dan berkelanjutan",
     },
   ]
@@ -164,12 +164,11 @@ export default function TeamSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
           {[
-            { number: "6", label: "Anggota Tim" },
-            { number: "3", label: "Bulan Program" },
+            { number: "46", label: "Anggota Tim" },
+            { number: "1", label: "Bulan Program" },
             { number: "127", label: "UMKM Terjangkau" },
-            { number: "8,542", label: "Masyarakat Terlayani" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-4xl font-bold text-purple-600 mb-2">{stat.number}</div>

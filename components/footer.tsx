@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { MapPin, Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react"
+import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Music3 } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -20,18 +20,26 @@ export default function Footer() {
               Kelurahan Sendangmulyo.
             </p>
             <div className="flex space-x-4">
-              <a
-                href="https://www.instagram.com/kkn81_sendangmulyo?igsh=MWU5Ym1oZWg1aXNoZw=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Youtube className="h-5 w-5" />
-              </a>
-            </div>
+  <a
+    href="https://www.instagram.com/kkn81_sendangmulyo?igsh=MWU5Ym1oZWg1aXNoZw=="
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-400 hover:text-white transition-colors"
+  >
+    <Instagram className="h-5 w-5" />
+  </a>
+  <a
+    href="https://www.tiktok.com/@kkn81_sendangmulyo?is_from_webapp=1&sender_device=pc"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-400 hover:text-white transition-colors"
+  >
+    <Music3 className="h-5 w-5" />
+  </a>
+  <a href="#" className="text-gray-400 hover:text-white transition-colors">
+    <Youtube className="h-5 w-5" />
+  </a>
+</div>
           </div>
 
           {/* Quick Links */}
@@ -44,6 +52,8 @@ export default function Footer() {
                 { name: "Profil Desa", href: "#village" },
                 { name: "UMKM", href: "#umkm" },
                 { name: "Tim Kami", href: "#team" },
+                { name: "Peta", href: "#map" },
+                { name: "Kontak", href: "#contact" },
               ].map((link) => (
                 <li key={link.name}>
                   <a href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
@@ -58,11 +68,11 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Program</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li>Sertifikasi Halal UMKM</li>
-              <li>Pelatihan Keamanan Pangan</li>
-              <li>Edukasi Gizi Seimbang</li>
-              <li>Pemberdayaan Ekonomi</li>
-              <li>Digitalisasi UMKM</li>
+              <li>Pembuatan NIB UMKM</li>
+              <li>Pembuatan dan Penerbitan Sertifikat Halal</li>
+              <li>Pembuatan Labelisasi Higienis</li>
+              <li>Pembuatan Tugu Zona KHAS</li>
+              <li>Revitalisasi Pujasera</li>
             </ul>
           </div>
 
