@@ -450,7 +450,7 @@ export default function TeamPage() {
             </Button>
           </Link>
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Tim KKN Zona KHAS</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Tim KKN IDBU-81</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Berkenalan dengan tim mahasiswa yang berdedikasi untuk mengembangkan Zona KHAS di Klipang, Kelurahan
               Sendangmulyo

@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="flex items-center space-x-3">
               <img src="/images/logokknbgerase.png" alt="Logo KKN UNDIP" className="w-10 h-10 object-contain" />
               <div className="flex flex-col">
-                <span className="font-bold text-lg">KKN Zona KHAS</span>
+                <span className="font-bold text-lg">KKN IDBU-81</span>
                 <span className="text-xs text-gray-400">UNDIP Sendangmulyo</span>
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm"> © {new Date().getFullYear()} KKN Zona KHAS. Universitas Diponegoro. All rights reserved.</p>
+            <p className="text-gray-400 text-sm"> © {new Date().getFullYear()} KKN IDBU-81. Universitas Diponegoro. All rights reserved.</p>
           </div>
         </div>
       </div>
