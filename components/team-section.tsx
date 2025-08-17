@@ -3,7 +3,22 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Users, ArrowRight, GraduationCap, Heart, Target } from "lucide-react"
+import { Users, ArrowRight, GraduationCap, Heart, Target, Calendar, MapPin } from "lucide-react"
+
+interface EventInfo {
+  title: string
+  description: string
+  type: "start" | "end"
+}
+
+interface HoveredDate {
+  day: number
+  month: number
+  eventInfo: EventInfo
+  index: number
+  x: number
+  y: number
+}
 
 export default function TeamSection() {
   const teamHighlights = [
@@ -23,7 +38,137 @@ export default function TeamSection() {
       description: "Mengutamakan solusi praktis dan berkelanjutan",
     },
   ]
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const [hoveredDate, setHoveredDate] = useState<HoveredDate | null>(null)
+
+  // Calendar logic for July-August 2025
+  const generateCalendar = (month: number, year: number): (number | null)[] => {
+    const firstDay = new Date(year, month, 1).getDay()
+    const daysInMonth = new Date(year, month + 1, 0).getDate()
+    const days: (number | null)[] = []
+    
+    // Add empty cells for days before the first day of month
+    for (let i = 0; i < firstDay; i++) {
+      days.push(null)
+    }
+    
+    // Add all days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+      days.push(day)
+    }
+    
+    return days
+  }
+
+  const getEventInfo = (day: number | null, month: number): EventInfo | null => {
+    if (!day) return null
+    if (month === 6 && day === 8) { // July 8, 2025 (month is 0-indexed)
+      return {
+        title: "Upacara & Pemberangkatan KKN",
+        description: "Upacara pembukaan dan pemberangkatan peserta KKN UNDIP",
+        type: "start"
+      }
+    }
+    if (month === 7 && day === 20) { // August 20, 2025
+      return {
+        title: "Upacara Penarikan KKN",
+        description: "Upacara penutupan dan penarikan peserta KKN UNDIP",
+        type: "end"
+      }
+    }
+    return null
+  }
+
+  const isHighlightedDate = (day: number | null, month: number): boolean => {
+    if (!day) return false
+    return (month === 6 && day === 8) || (month === 7 && day === 20) || 
+           (month === 6 && day >= 8) || (month === 7 && day <= 20)
+  }
+
+  const isEventDate = (day: number | null, month: number): boolean => {
+    if (!day) return false
+    return (month === 6 && day === 8) || (month === 7 && day === 20)
+  }
+
+  const CalendarMonth = ({ month, year, monthName }: { month: number; year: number; monthName: string }) => {
+    const days = generateCalendar(month, year)
+    const dayNames = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
+
+    return (
+      <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 relative">
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">{monthName} 2025</h3>
+        <div className="grid grid-cols-7 gap-1 mb-2">
+          {dayNames.map(day => (
+            <div key={day} className="text-center text-xs font-medium text-gray-500 p-2">
+              {day}
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-7 gap-1">
+          {days.map((day, index) => {
+            const eventInfo = getEventInfo(day, month)
+            const isHighlighted = isHighlightedDate(day, month)
+            const isEvent = isEventDate(day, month)
+            
+            return (
+              <div
+                key={index}
+                className={`
+                  relative aspect-square flex items-center justify-center text-sm cursor-pointer rounded-lg transition-all duration-200
+                  ${!day ? '' : 
+                    isEvent ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white font-bold shadow-lg transform hover:scale-110' :
+                    isHighlighted ? 'bg-purple-100 text-purple-700 hover:bg-purple-200' :
+                    'text-gray-400 hover:bg-gray-100'
+                  }
+                `}
+                onMouseEnter={(e) => {
+                  if (eventInfo && day) {
+                    const rect = e.currentTarget.getBoundingClientRect()
+                    setHoveredDate({ 
+                      day, 
+                      month, 
+                      eventInfo, 
+                      index,
+                      x: rect.left + rect.width / 2,
+                      y: rect.top
+                    })
+                  }
+                }}
+                onMouseLeave={() => setHoveredDate(null)}
+              >
+                {day}
+                {isEvent && (
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+        
+        {/* Tooltip for this calendar */}
+        {hoveredDate && hoveredDate.month === month && (
+          <div 
+            className="fixed z-50 bg-gray-900 text-white p-4 rounded-lg shadow-2xl max-w-xs pointer-events-none transform -translate-x-1/2 -translate-y-full"
+            style={{
+              left: `${hoveredDate.x}px`,
+              top: `${hoveredDate.y - 10}px`,
+            }}
+          >
+            <div className="flex items-center mb-2">
+              {hoveredDate.eventInfo.type === 'start' ? (
+                <MapPin className="h-4 w-4 text-green-400 mr-2" />
+              ) : (
+                <Calendar className="h-4 w-4 text-blue-400 mr-2" />
+              )}
+              <h4 className="font-bold text-sm">{hoveredDate.eventInfo.title}</h4>
+            </div>
+            <p className="text-xs text-gray-300">{hoveredDate.eventInfo.description}</p>
+            <div className="absolute bottom-0 left-1/2 transform translate-y-1/2 -translate-x-1/2 rotate-45 w-2 h-2 bg-gray-900"></div>
+          </div>
+        )}
+      </div>
+    )
+  }
 
   return (
     <section id="team" className="py-20 bg-white">
@@ -63,31 +208,29 @@ export default function TeamSection() {
           </div>
           <div>
             <img
-  src="/images/timkkn.jpg"
-  alt="Tim KKN UNDIP Sendangmulyo"
-  onClick={() => setIsModalOpen(true)}
-  className="cursor-pointer rounded-2xl shadow-lg w-full h-[400px] object-cover transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-/>
-
+              src="/images/timkkn.jpg"
+              alt="Tim KKN UNDIP Sendangmulyo"
+              onClick={() => setIsModalOpen(true)}
+              className="cursor-pointer rounded-2xl shadow-lg w-full h-[400px] object-cover transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            />
           </div>
           {isModalOpen && (
-  <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center">
-    <div className="relative">
-      <button
-        className="absolute top-2 right-2 bg-white text-gray-800 rounded-full p-2 shadow hover:bg-gray-100 transition"
-        onClick={() => setIsModalOpen(false)}
-      >
-        ✕
-      </button>
-      <img
-        src="/images/timkkn.jpg"
-        alt="Tim KKN Full View"
-        className="max-w-full max-h-[90vh] rounded-xl shadow-2xl border-4 border-white"
-      />
-    </div>
-  </div>
-)}
-
+            <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center">
+              <div className="relative">
+                <button
+                  className="absolute top-2 right-2 bg-white text-gray-800 rounded-full p-2 shadow hover:bg-gray-100 transition"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  ✕
+                </button>
+                <img
+                  src="/images/timkkn.jpg"
+                  alt="Tim KKN Full View"
+                  className="max-w-full max-h-[90vh] rounded-xl shadow-2xl border-4 border-white"
+                />
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -102,6 +245,37 @@ export default function TeamSection() {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* KKN Calendar Section */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center mb-4">
+              <Calendar className="h-8 w-8 text-purple-600 mr-3" />
+              <h3 className="text-3xl font-bold text-gray-900">Jadwal Program KKN</h3>
+            </div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Program KKN UNDIP berlangsung selama 6 minggu, dari upacara pemberangkatan hingga penarikan
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <CalendarMonth month={6} year={2025} monthName="Juli" />
+              <CalendarMonth month={7} year={2025} monthName="Agustus" />
+            </div>
+          </div>
+
+          <div className="mt-8 flex justify-center space-x-6 flex-wrap">
+            <div className="flex items-center mb-4">
+              <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mr-2"></div>
+              <span className="text-sm text-gray-600">Event Penting</span>
+            </div>
+            <div className="flex items-center mb-4">
+              <div className="w-4 h-4 bg-purple-100 rounded-full mr-2"></div>
+              <span className="text-sm text-gray-600">Periode KKN</span>
+            </div>
+          </div>
         </div>
 
         <div className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl p-8 md:p-12 text-white text-center mb-16">
@@ -167,7 +341,7 @@ export default function TeamSection() {
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6">
           {[
             { number: "46", label: "Anggota Tim" },
-            { number: "1", label: "Bulan Program" },
+            { number: "6", label: "Minggu Program" },
             { number: "127", label: "UMKM Terjangkau" },
           ].map((stat, index) => (
             <div key={index} className="text-center">

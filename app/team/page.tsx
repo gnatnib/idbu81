@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Instagram } from "lucide-react"
 
 const teamData = {
   BPH: [
@@ -219,52 +220,204 @@ const teamData = {
       email: "putri.maharani@students.undip.ac.id",
       image: "/images/Humas/Salma Najwa_Divisi Humas_Biologi.jpg",
     },
+    {
+      id: 24,
+      name: "Arrayna Octavia Rakhman",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Teknik Perkapalan",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Arrayna Octavia Rakhman_Divisi Humas_Teknik Perkapalan.jpg",
+    },
+    {
+      id: 25,
+      name: "Chiara Nursaputri Faustine",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Bahasa Asing Terapan",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Chiara Nursaputri Faustine_Divisi Humas_Bahasa Asing Terapan.jpg",
+    },
+    {
+      id: 26,
+      name: "Ghina Puan",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Bahasa dan Kebudayaan Jepang",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Ghina Puan_Bahasa dan Kebudayaan Jepang.png",
+    },
+    {
+      id: 27,
+      name: "Hanifah Medina Syahputri",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Teknik Industri",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Hanifah Medina Syahputri_Divisi Humas_Teknik Industri.png",
+    },
+    {
+      id: 28,
+      name: "Kalista Ladeano M.",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Hukum",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Kalista Ladeano M_Divisi Humas_Hukum.png",
+    },
+    {
+      id: 29,
+      name: "Kanesha Hafiza Z.",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Hukum",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Kanesha hafiza z_Divisi Humas_Hukum.jpg",
+    },
+    {
+      id: 30,
+      name: "Muhammad Ihsan Syarkawi",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Teknik Mesin",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Muhammad Ihsan Syarkawi_Divisi Humas_Teknik Mesin.jpg",
+    },
+    {
+      id: 31,
+      name: "Nafisa Nur A.",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Informasi & Humas",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Nafisa Nur A_Divisi Humas_Informasi & Humas.png",
+    },
+    {
+      id: 32,
+      name: "Naila Putri Wijaya",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Hukum",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Naila Putri Wijaya_Divisi Humas_Hukum.jpg",
+    },
+    {
+      id: 33,
+      name: "Naila Ula Faiza",
+      role: "Divisi Humas",
+      university: "Universitas Diponegoro",
+      major: "Psikologi",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/Humas/Naila Ula Faiza_Divisi Humas_Psikologi.jpg",
+    },
   ],
   "Divisi IT": [
     {
-      id: 19,
-      name: "Ahmad Fauzi Rahman",
-      role: "Kepala Divisi IT",
+      id: 34,
+      name: "Achmy Nor At Tas Thari",
+      role: "Divisi IT",
       university: "Universitas Diponegoro",
-      major: "Teknik Informatika",
-      email: "ahmad.fauzi@students.undip.ac.id",
-      image: "/images/IT/Ahmad Fauzi Rahman_Kepala Divisi IT_Teknik Informatika.jpg",
+      major: "Teknik Geologi",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Achmy Nor At Tas Thari_Divisi IT_Teknik Geologi.png",
     },
     {
-      id: 20,
-      name: "Sinta Dewi Lestari",
-      role: "Anggota Divisi IT",
+      id: 35,
+      name: "Bagas Arya Yudha Atmoko Putro",
+      role: "Divisi IT",
       university: "Universitas Diponegoro",
-      major: "Sistem Informasi",
-      email: "sinta.dewi@students.undip.ac.id",
-      image: "/images/IT/Sinta Dewi Lestari_Anggota Divisi IT_Sistem Informasi.jpg",
+      major: "Kedokteran",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Bagas Arya Yudha Atmoko Putro_Divisi IT_Kedokteran.png",
     },
     {
-      id: 21,
-      name: "Eko Prasetyo",
-      role: "Anggota Divisi IT",
+      id: 36,
+      name: "Dewi Melisa",
+      role: "Divisi IT",
       university: "Universitas Diponegoro",
-      major: "Teknik Komputer",
-      email: "eko.prasetyo@students.undip.ac.id",
-      image: "/images/IT/Eko Prasetyo_Anggota Divisi IT_Teknik Komputer.jpg",
+      major: "Manajemen",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/melisa.png",
     },
     {
-      id: 22,
-      name: "Rina Safitri",
-      role: "Anggota Divisi IT",
+      id: 37,
+      name: "Dhea Auliya",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Manajemen Sumberdaya Perairan",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Dhea Auliya_IT_Manajemen Sumberdaya Perairan.jpg",
+    },
+    {
+      id: 38,
+      name: "Dicky Erlangga Darmawan",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Ilmu Komunikasi",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Dicky Erlangga Darmawan_Anggota IT_Ilmu Komunikasi.png",
+    },
+    {
+      id: 39,
+      name: "Muhammad Ramzy Alfaridzy",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Administrasi Publik",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Muhammad Ramzy Alfaridzy_Anggota IT_Administrasi Publik.png",
+    },
+    {
+      id: 40,
+      name: "Muhammad Rizal Romadhon",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Teknik Infrastruktur Sipil dan Perancangan Arsitektur",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Muhammad Rizal Romadhon_Divisi IT_Teknik Infrastruktur Sipil dan Perancangan Arsitektur.png",
+    },
+    {
+      id: 41,
+      name: "Natasya Amanda",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Sastra Inggris",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Natasya Amanda_Divisi IT_Sastra Inggris.png",
+    },
+    {
+      id: 42,
+      name: "Raditya Aglar Nuswantoro",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Psikologi",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Raditya Aglar Nuswantoro_Divisi IT_Psikologi.jpg",
+    },
+    {
+      id: 43,
+      name: "Sekar Ave Rahayuningtyas",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Ekonomi",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/sekarave.jpg",
+    },
+    {
+      id: 44,
+      name: "Yoga Reksandiko Rasyidin",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Teknologi Rekayasa Otomasi",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/Yoga Reksandiko Rasyidin_IT_Teknologi Rekayasa Otomasi.jpg",
+    },{
+      id: 45,
+      name: "Bintang Syafrian Rizal",
+      role: "Divisi IT",
       university: "Universitas Diponegoro",
       major: "Informatika",
-      email: "rina.safitri@students.undip.ac.id",
-      image: "/images/IT/Rina Safitri_Anggota Divisi IT_Informatika.jpg",
-    },
-    {
-      id: 23,
-      name: "Doni Setiawan",
-      role: "Anggota Divisi IT",
-      university: "Universitas Diponegoro",
-      major: "Teknik Elektro",
-      email: "doni.setiawan@students.undip.ac.id",
-      image: "/images/IT/Doni Setiawan_Anggota Divisi IT_Teknik Elektro.jpg",
+      email: "putri.maharani@students.undip.ac.id",
+      image: "/images/IT/bintang.png",
     },
   ],
 }
@@ -363,7 +516,7 @@ export default function TeamPage() {
           {[
             { number: totalMembers.toString(), label: "Total Anggota", icon: "👥" },
             { number: "4", label: "Divisi", icon: "🏛️" },
-            { number: "8", label: "Fakultas", icon: "🎓" },
+            { number: "10", label: "Fakultas", icon: "🎓" },
             { number: "1", label: "Bulan Program", icon: "📅" },
           ].map((stat, index) => (
             <div
@@ -379,20 +532,20 @@ export default function TeamPage() {
 
         {/* Call to Action */}
         <div className="mt-16 text-center bg-gradient-to-r from-green-500 to-blue-500 rounded-3xl p-8 text-white">
-          <h3 className="text-2xl font-bold mb-4">Bergabung dengan Program Zona KHAS</h3>
-          <p className="text-lg mb-6 opacity-90">
-            Ingin berkolaborasi atau mengetahui lebih lanjut tentang program kami?
-          </p>
-          <Button
-            size="lg"
-            variant="secondary"
-            className="bg-white text-green-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-300"
-            onClick={() => (window.location.href = "/#contact")}
-          >
-            Hubungi Kami
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
+  <h3 className="text-2xl font-bold mb-4">Ikuti Kegiatan Kami</h3>
+  <p className="text-lg mb-6 opacity-90">
+    Dapatkan informasi terbaru dan dokumentasi kegiatan melalui Instagram resmi KKN 81 Sendangmulyo.
+  </p>
+  <Button
+    size="lg"
+    variant="secondary"
+    className="bg-white text-green-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-300"
+    onClick={() => window.open("https://www.instagram.com/kkn81_sendangmulyo", "_blank")}
+  >
+    Instagram Kami
+    <Instagram className="ml-2 h-5 w-5" />
+  </Button>
+</div>
       </div>
     </div>
   )
