@@ -157,6 +157,13 @@ const sanitasiImpacts = [
 ]
 
 export default function SanitasiSection() {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "6285700008941" // nomor Pak Furqon tanpa +
+    const message =
+      "Halo Pak Furqon, saya ingin berkonsultasi mengenai program sanitasi lingkungan dan HACCP di UMKM."
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
+  }
   return (
     <section id="sanitasi" className="py-20 bg-gradient-to-br from-emerald-50 to-cyan-50">
       <div className="container mx-auto px-4">
@@ -664,21 +671,23 @@ export default function SanitasiSection() {
           </div>
         </div>
 
-        {/* Call to Action */}
+        {/* CTA */}
         <div className="bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-4">Bergabung Program Sanitasi Lingkungan</h3>
-          <p className="text-lg mb-6 opacity-90 max-w-3xl mx-auto">
-            Wujudkan UMKM yang bersih, sehat, dan berkelanjutan melalui implementasi sistem sanitasi dan HACCP yang
-            tepat
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+  <h3 className="text-2xl font-bold mb-4">Bergabung Program Sanitasi Lingkungan</h3>
+  <p className="text-lg mb-6 opacity-90 max-w-3xl mx-auto">
+    Wujudkan UMKM yang bersih, sehat, dan berkelanjutan melalui implementasi sistem sanitasi dan HACCP yang
+    tepat
+  </p>
+  <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
               variant="secondary"
               className="bg-white text-emerald-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-300"
+              onClick={handleWhatsAppClick}
             >
               Konsultasi Gratis
             </Button>
+
             <Button
               size="lg"
               variant="outline"
@@ -687,7 +696,7 @@ export default function SanitasiSection() {
               Panduan HACCP
             </Button>
           </div>
-        </div>
+</div>
       </div>
     </section>
   )

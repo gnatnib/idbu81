@@ -98,15 +98,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">© 2024 KKN Zona KHAS. Universitas Diponegoro. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Terms of Service
-              </Link>
-            </div>
+            <p className="text-gray-400 text-sm"> © {new Date().getFullYear()} KKN Zona KHAS. Universitas Diponegoro. All rights reserved.</p>
           </div>
         </div>
       </div>
