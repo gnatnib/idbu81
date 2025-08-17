@@ -342,7 +342,7 @@ export default function TeamSection() {
           {[
             { number: "46", label: "Anggota Tim" },
             { number: "6", label: "Minggu Program" },
-            { number: "127", label: "UMKM Terjangkau" },
+            { number: "30+", label: "UMKM Terjangkau" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-4xl font-bold text-purple-600 mb-2">{stat.number}</div>
@@ -353,4 +353,4 @@ export default function TeamSection() {
       </div>
     </section>
   )
-}
+}``
