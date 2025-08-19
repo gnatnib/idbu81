@@ -32,7 +32,7 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Ilmu Pemerintahan",
       email: "bagas.setiyawan@students.undip.ac.id",
-      image: "/images/BPH/Bagas Setiyawan_Wakil Ketua_Ilmu Pemerintahan_.jpg",
+      image: "/images/BPH/bagas.jpg",
     },
     {
       id: 3,
