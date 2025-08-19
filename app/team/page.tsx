@@ -207,7 +207,7 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Kimia",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/Humas/Fanny Safitry_Divisi Humas_Kimia.jpg",
+      image: "/images/Humas/fanny.jpg",
     },
     {
       id: 21,
@@ -452,7 +452,7 @@ const teamData = {
       major: "Kedokteran",
       email: "putri.maharani@students.undip.ac.id",
       image:
-        "/images/IT/Bagas Arya Yudha Atmoko Putro_Divisi IT_Kedokteran.png",
+        "/images/IT/pakdok.png",
     },
   ],
 };
