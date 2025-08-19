@@ -332,37 +332,40 @@ export default function TeamSection() {
 
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-24 h-24 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-all duration-300 group-hover:bg-opacity-100">
-                    <Play className="h-10 w-10 text-red-600 ml-1 group-hover:text-red-700" />
+                  <div className="w-16 h-16 md:w-24 md:h-24 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-all duration-300 group-hover:bg-opacity-100">
+                    <Play className="h-6 w-6 md:h-10 md:w-10 text-red-600 ml-0.5 md:ml-1 group-hover:text-red-700" />
                   </div>
                 </div>
 
                 {/* Video Info Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/70 to-transparent p-6">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/70 to-transparent p-3 md:p-6">
                   <div className="text-white">
-                    <h4 className="text-2xl font-bold mb-2">
+                    <h4 className="text-lg md:text-2xl font-bold mb-1 md:mb-2 line-clamp-2">
                       Mewujudkan Harapan yang Tulus
                     </h4>
-                    <p className="text-gray-200 mb-3">
+                    <p className="text-gray-200 mb-2 md:mb-3 text-sm md:text-base">
                       KKN-T IDBU 81 Universitas Diponegoro
                     </p>
 
-                    <div className="flex items-center space-x-4 text-sm text-gray-300">
+                    <div className="flex items-center space-x-2 md:space-x-4 text-xs md:text-sm text-gray-300">
                       <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
+                        <Clock className="h-3 w-3 md:h-4 md:w-4 mr-1" />
                         <span>06:20</span>
                       </div>
                       <div className="flex items-center">
-                        <Eye className="h-4 w-4 mr-1" />
-                        <span>Dokumentasi Lengkap</span>
+                        <Eye className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                        <span className="hidden sm:inline">
+                          Dokumentasi Lengkap
+                        </span>
+                        <span className="sm:hidden">Dokumentasi</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* YouTube Logo */}
-                <div className="absolute top-4 right-4">
-                  <div className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                <div className="absolute top-2 md:top-4 right-2 md:right-4">
+                  <div className="bg-red-600 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-bold">
                     YouTube
                   </div>
                 </div>
