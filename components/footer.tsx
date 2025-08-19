@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Music3 } from "lucide-react"
+import Link from "next/link";
+import { MapPin, Phone, Instagram, Youtube, Music3 } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,37 +9,46 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <img src="/images/logokknbgerase.png" alt="Logo KKN UNDIP" className="w-10 h-10 object-contain" />
+              <img
+                src="/images/logokknbgerase.png"
+                alt="Logo KKN UNDIP"
+                className="w-10 h-10 object-contain"
+              />
               <div className="flex flex-col">
                 <span className="font-bold text-lg">KKN IDBU-81</span>
-                <span className="text-xs text-gray-400">UNDIP Sendangmulyo</span>
+                <span className="text-xs text-gray-400">
+                  UNDIP Sendangmulyo
+                </span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Program Kuliah Kerja Nyata untuk pengembangan Zona KHAS (Kuliner Halal, Aman, dan Sehat) di Klipang,
-              Kelurahan Sendangmulyo.
+              Program Kuliah Kerja Nyata untuk pengembangan Zona KHAS (Kuliner
+              Halal, Aman, dan Sehat) di Klipang, Kelurahan Sendangmulyo.
             </p>
             <div className="flex space-x-4">
-  <a
-    href="https://www.instagram.com/kkn81_sendangmulyo?igsh=MWU5Ym1oZWg1aXNoZw=="
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-gray-400 hover:text-white transition-colors"
-  >
-    <Instagram className="h-5 w-5" />
-  </a>
-  <a
-    href="https://www.tiktok.com/@kkn81_sendangmulyo?is_from_webapp=1&sender_device=pc"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-gray-400 hover:text-white transition-colors"
-  >
-    <Music3 className="h-5 w-5" />
-  </a>
-  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-    <Youtube className="h-5 w-5" />
-  </a>
-</div>
+              <a
+                href="https://www.instagram.com/kkn81_sendangmulyo?igsh=MWU5Ym1oZWg1aXNoZw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@kkn81_sendangmulyo?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Music3 className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                <Youtube className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -56,7 +65,10 @@ export default function Footer() {
                 { name: "Kontak", href: "#contact" },
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
                     {link.name}
                   </a>
                 </li>
@@ -82,15 +94,17 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center text-sm text-gray-400">
                 <MapPin className="h-4 w-4 mr-2 flex-shrink-0" />
-                <span>Klipang, Kel. Sendangmulyo, Kec. Tembalang, Semarang</span>
+                <span>
+                  Klipang, Kel. Sendangmulyo, Kec. Tembalang, Semarang
+                </span>
               </div>
               <div className="flex items-center text-sm text-gray-400">
                 <Phone className="h-4 w-4 mr-2 flex-shrink-0" />
                 <span>+62 812-3456-7890</span>
               </div>
               <div className="flex items-center text-sm text-gray-400">
-                <Mail className="h-4 w-4 mr-2 flex-shrink-0" />
-                <span>zonakhas.sendangmulyo@gmail.com</span>
+                <Instagram className="h-4 w-4 mr-2 flex-shrink-0" />
+                <span>@kkn81_sendangmulyo</span>
               </div>
             </div>
           </div>
@@ -98,10 +112,14 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm"> © {new Date().getFullYear()} KKN IDBU-81. Universitas Diponegoro. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">
+              {" "}
+              © {new Date().getFullYear()} KKN IDBU-81. Universitas Diponegoro.
+              All rights reserved.
+            </p>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
