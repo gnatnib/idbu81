@@ -79,14 +79,14 @@ export default function Navbar() {
                   isTeamPage || isScrolled ? "text-gray-900" : "text-white"
                 }`}
               >
-                Zona KHAS
+                KKN-T IDBU 81 Sendangmulyo
               </span>
               <span
                 className={`text-xs hidden sm:block transition-colors duration-300 ${
                   isTeamPage || isScrolled ? "text-gray-600" : "text-white/80"
                 }`}
               >
-                IDBU-81 Universitas Diponegoro
+                Universitas Diponegoro
               </span>
             </div>
           </div>
