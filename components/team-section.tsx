@@ -322,7 +322,7 @@ export default function TeamSection() {
               <div className="aspect-video relative overflow-hidden">
                 {/* Actual Thumbnail Image */}
                 <img
-                  src="/images/thumbnail.jpg"
+                  src="/images/thumbnailvideo.jpg"
                   alt="Mewujudkan Harapan yang Tulus - KKN UNDIP Thumbnail"
                   className="w-full h-full object-cover"
                 />
