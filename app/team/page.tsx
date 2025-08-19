@@ -1,11 +1,17 @@
-"use client"
+"use client";
 
-import { ArrowLeft, Mail, ArrowRight, Users, FileText, MessageCircle, Code } from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Instagram } from "lucide-react"
+import {
+  ArrowLeft,
+  Users,
+  FileText,
+  MessageCircle,
+  Code,
+  Instagram,
+} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const teamData = {
   BPH: [
@@ -16,7 +22,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Akuntansi Perpajakan",
       email: "farhan.azhar@students.undip.ac.id",
-      image: "/images/BPH/Farhan Azhar Antawirja_Ketua_Akuntansi Perpajakan.jpg",
+      image:
+        "/images/BPH/Farhan Azhar Antawirja_Ketua_Akuntansi Perpajakan.jpg",
     },
     {
       id: 2,
@@ -25,7 +32,7 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Ilmu Pemerintahan",
       email: "bagas.setiyawan@students.undip.ac.id",
-      image: "/images/BPH/Bagas Setiyawan_Wakil Ketua_Ilmu Pemerintah_.jpg",
+      image: "/images/BPH/Bagas Setiyawan_Wakil Ketua_Ilmu Pemerintahan_.jpg",
     },
     {
       id: 3,
@@ -61,7 +68,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Akuntansi Perpajakan",
       email: "nisrina.sarwahita@students.undip.ac.id",
-      image: "/images/BPH/Nisrina Sarwahita_Bendahara I_Akuntansi Perpajakan.png",
+      image:
+        "/images/BPH/Nisrina Sarwahita_Bendahara I_Akuntansi Perpajakan.png",
     },
     {
       id: 7,
@@ -90,7 +98,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Sejarah",
       email: "sari.dewi@students.undip.ac.id",
-      image: "/images/Dokumen/Elfio Adistya Putri Ardani_Divisi Dokumen_Sejarah.jpg",
+      image:
+        "/images/Dokumen/Elfio Adistya Putri Ardani_Divisi Dokumen_Sejarah.jpg",
     },
     {
       id: 10,
@@ -99,7 +108,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Statistika",
       email: "reza.firmansyah@students.undip.ac.id",
-      image: "/images/Dokumen/Dinda Eprilia Permatasari_Divisi Dokumen_Statistika.JPG",
+      image:
+        "/images/Dokumen/Dinda Eprilia Permatasari_Divisi Dokumen_Statistika.JPG",
     },
     {
       id: 11,
@@ -108,7 +118,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Agroekoteknologi",
       email: "maya.sari@students.undip.ac.id",
-      image: "/images/Dokumen/Aisiya Febrinia Putri_Divisi Dokumen_Agroekoteknologi.png",
+      image:
+        "/images/Dokumen/Aisiya Febrinia Putri_Divisi Dokumen_Agroekoteknologi.png",
     },
     {
       id: 12,
@@ -117,7 +128,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Peternakan",
       email: "dimas.aditya@students.undip.ac.id",
-      image: "/images/Dokumen/Wong, Maria Kristina Martono_Divisi Dokumen_Peternakan.jpg",
+      image:
+        "/images/Dokumen/Wong, Maria Kristina Martono_Divisi Dokumen_Peternakan.jpg",
     },
     {
       id: 13,
@@ -135,7 +147,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Teknik Lingkungan",
       email: "maya.sari@students.undip.ac.id",
-      image: "/images/Dokumen/Salsabila Yuniar_Divisi Dokumen_Teknik Lingkungan.jpg",
+      image:
+        "/images/Dokumen/Salsabila Yuniar_Divisi Dokumen_Teknik Lingkungan.jpg",
     },
     {
       id: 15,
@@ -144,7 +157,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Teknik Lingkungan",
       email: "maya.sari@students.undip.ac.id",
-      image: "/images/Dokumen/Restu Widiyatmoko_Divisi Dokumen_Teknik Lingkungan_.png",
+      image:
+        "/images/Dokumen/Restu Widiyatmoko_Divisi Dokumen_Teknik Lingkungan_.png",
     },
     {
       id: 16,
@@ -153,7 +167,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Akuntansi Perpajakan",
       email: "maya.sari@students.undip.ac.id",
-      image: "/images/Dokumen/Nisrina Salma_Divisi Dokumen_Akuntansi Perpajakan.jpg",
+      image:
+        "/images/Dokumen/Nisrina Salma_Divisi Dokumen_Akuntansi Perpajakan.jpg",
     },
     {
       id: 17,
@@ -162,7 +177,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Ilmu Perpustakaan",
       email: "maya.sari@students.undip.ac.id",
-      image: "/images/Dokumen/Nayla Rohadatul_Divisi Dokumen_Ilmu Perpustakaan.jpg",
+      image:
+        "/images/Dokumen/Nayla Rohadatul_Divisi Dokumen_Ilmu Perpustakaan.jpg",
     },
     {
       id: 18,
@@ -191,7 +207,7 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Kimia",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/Humas/Fanny Safitri_Divisi Humas_Kimia.jpg",
+      image: "/images/Humas/Fanny Safitry_Divisi Humas_Kimia.jpg",
     },
     {
       id: 21,
@@ -227,7 +243,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Teknik Perkapalan",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/Humas/Arrayna Octavia Rakhman_Divisi Humas_Teknik Perkapalan.jpg",
+      image:
+        "/images/Humas/Arrayna Octavia Rakhman_Divisi Humas_Teknik Perkapalan.jpg",
     },
     {
       id: 25,
@@ -236,7 +253,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Bahasa Asing Terapan",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/Humas/Chiara Nursaputri Faustine_Divisi Humas_Bahasa Asing Terapan.jpg",
+      image:
+        "/images/Humas/Chiara Nursaputri Faustine_Divisi Humas_Bahasa Asing Terapan.jpg",
     },
     {
       id: 26,
@@ -254,7 +272,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Teknik Industri",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/Humas/Hanifah Medina Syahputri_Divisi Humas_Teknik Industri.png",
+      image:
+        "/images/Humas/Hanifah Medina Syahputri_Divisi Humas_Teknik Industri.png",
     },
     {
       id: 28,
@@ -281,7 +300,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Teknik Mesin",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/Humas/Muhammad Ihsan Syarkawi_Divisi Humas_Teknik Mesin.jpg",
+      image:
+        "/images/Humas/Muhammad Ihsan Syarkawi_Divisi Humas_Teknik Mesin.jpg",
     },
     {
       id: 31,
@@ -314,21 +334,21 @@ const teamData = {
   "Divisi IT": [
     {
       id: 34,
-      name: "Achmy Nor At Tas Thari",
+      name: "Bintang Syafrian Rizal",
       role: "Divisi IT",
       university: "Universitas Diponegoro",
-      major: "Teknik Geologi",
+      major: "Informatika",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/IT/Achmy Nor At Tas Thari_Divisi IT_Teknik Geologi.png",
+      image: "/images/IT/bintang.png",
     },
     {
       id: 35,
-      name: "Bagas Arya Yudha Atmoko Putro",
+      name: "Rifki Roboth",
       role: "Divisi IT",
       university: "Universitas Diponegoro",
-      major: "Kedokteran",
-      email: "putri.maharani@students.undip.ac.id",
-      image: "/images/IT/Bagas Arya Yudha Atmoko Putro_Divisi IT_Kedokteran.png",
+      major: "Teknik Komputer",
+      email: "",
+      image: "/images/IT/rifkirobot.jpg",
     },
     {
       id: 36,
@@ -355,7 +375,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Ilmu Komunikasi",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/IT/Dicky Erlangga Darmawan_Anggota IT_Ilmu Komunikasi.png",
+      image:
+        "/images/IT/Dicky Erlangga Darmawan_Anggota IT_Ilmu Komunikasi.png",
     },
     {
       id: 39,
@@ -364,7 +385,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Administrasi Publik",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/IT/Muhammad Ramzy Alfaridzy_Anggota IT_Administrasi Publik.png",
+      image:
+        "/images/IT/Muhammad Ramzy Alfaridzy_Anggota IT_Administrasi Publik.png",
     },
     {
       id: 40,
@@ -373,7 +395,8 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Teknik Infrastruktur Sipil dan Perancangan Arsitektur",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/IT/Muhammad Rizal Romadhon_Divisi IT_Teknik Infrastruktur Sipil dan Perancangan Arsitektur.png",
+      image:
+        "/images/IT/Muhammad Rizal Romadhon_Divisi IT_Teknik Infrastruktur Sipil dan Perancangan Arsitektur.png",
     },
     {
       id: 41,
@@ -409,51 +432,68 @@ const teamData = {
       university: "Universitas Diponegoro",
       major: "Teknologi Rekayasa Otomasi",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/IT/Yoga Reksandiko Rasyidin_IT_Teknologi Rekayasa Otomasi.jpg",
-    },{
+      image:
+        "/images/IT/Yoga Reksandiko Rasyidin_IT_Teknologi Rekayasa Otomasi.jpg",
+    },
+    {
       id: 45,
-      name: "Bintang Syafrian Rizal",
+      name: "Achmy Nor At Tas Thari",
       role: "Divisi IT",
       university: "Universitas Diponegoro",
-      major: "Informatika",
+      major: "Teknik Geologi",
       email: "putri.maharani@students.undip.ac.id",
-      image: "/images/IT/bintang.png",
+      image: "/images/IT/Achmy Nor At Tas Thari_Divisi IT_Teknik Geologi.png",
+    },
+    {
+      id: 46,
+      name: "Bagas Arya Yudha Atmoko Putro",
+      role: "Divisi IT",
+      university: "Universitas Diponegoro",
+      major: "Kedokteran",
+      email: "putri.maharani@students.undip.ac.id",
+      image:
+        "/images/IT/Bagas Arya Yudha Atmoko Putro_Divisi IT_Kedokteran.png",
     },
   ],
-}
+};
 
 const divisionIcons = {
   BPH: <Users className="h-5 w-5" />,
   "Divisi Dokumen": <FileText className="h-5 w-5" />,
   "Divisi Humas": <MessageCircle className="h-5 w-5" />,
   "Divisi IT": <Code className="h-5 w-5" />,
-}
+};
 
 const divisionColors = {
   BPH: "bg-purple-100 text-purple-800 border-purple-200",
   "Divisi Dokumen": "bg-blue-100 text-blue-800 border-blue-200",
   "Divisi Humas": "bg-green-100 text-green-800 border-green-200",
   "Divisi IT": "bg-orange-100 text-orange-800 border-orange-200",
-}
+};
 
 export default function TeamPage() {
-  const totalMembers = Object.values(teamData).flat().length
+  const totalMembers = Object.values(teamData).flat().length;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 py-20">
       <div className="container mx-auto px-4">
         <div className="mb-12">
           <Link href="/">
-            <Button variant="ghost" className="mb-6 hover:bg-white/50 transition-all duration-300">
+            <Button
+              variant="ghost"
+              className="mb-6 hover:bg-white/50 transition-all duration-300"
+            >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Kembali ke Beranda
             </Button>
           </Link>
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Tim KKN IDBU-81</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Tim KKN IDBU-81
+            </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Berkenalan dengan tim mahasiswa yang berdedikasi untuk mengembangkan Zona KHAS di Klipang, Kelurahan
-              Sendangmulyo
+              Berkenalan dengan tim mahasiswa yang berdedikasi untuk
+              mengembangkan Zona KHAS di Klipang, Kelurahan Sendangmulyo
             </p>
           </div>
         </div>
@@ -463,11 +503,15 @@ export default function TeamPage() {
           <div key={divisionName} className="mb-16">
             <div className="flex items-center justify-center mb-8">
               <Badge
-                className={`px-4 py-2 text-lg font-semibold ${divisionColors[divisionName as keyof typeof divisionColors]}`}
+                className={`px-4 py-2 text-lg font-semibold ${
+                  divisionColors[divisionName as keyof typeof divisionColors]
+                }`}
               >
                 {divisionIcons[divisionName as keyof typeof divisionIcons]}
                 <span className="ml-2">{divisionName}</span>
-                <span className="ml-2 bg-white/50 px-2 py-1 rounded-full text-sm">{members.length} anggota</span>
+                <span className="ml-2 bg-white/50 px-2 py-1 rounded-full text-sm">
+                  {members.length} anggota
+                </span>
               </Badge>
             </div>
 
@@ -485,23 +529,36 @@ export default function TeamPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-2 left-2 right-2 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                      <p className="text-xs font-medium truncate">{member.role}</p>
+                      <p className="text-xs font-medium truncate">
+                        {member.role}
+                      </p>
                     </div>
                   </div>
                   <CardContent className="p-3">
-                    <h3 className="font-bold text-sm text-gray-900 mb-1 line-clamp-2 leading-tight">{member.name}</h3>
-                    <p className="text-xs text-green-600 font-semibold mb-1">{member.role}</p>
-                    <p className="text-xs text-gray-500 mb-2 line-clamp-1">{member.major}</p>
+                    <h3 className="font-bold text-sm text-gray-900 mb-1 line-clamp-2 leading-tight">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs text-green-600 font-semibold mb-1">
+                      {member.role}
+                    </p>
+                    <p className="text-xs text-gray-500 mb-2 line-clamp-1">
+                      {member.major}
+                    </p>
 
-                    <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center mt-auto">
                       <Button
                         size="sm"
                         variant="ghost"
-                        className="h-8 px-2 text-xs hover:bg-green-50 hover:text-green-600 transition-colors duration-200"
-                        onClick={() => window.open(`mailto:${member.email}`, "_blank")}
+                        className="h-8 px-3 text-xs hover:bg-pink-50 hover:text-[#E4405F] transition-all duration-200 flex items-center justify-center min-w-[80px]"
+                        onClick={() =>
+                          window.open(
+                            "https://www.instagram.com/kkn81_sendangmulyo",
+                            "_blank"
+                          )
+                        }
                       >
-                        <Mail className="h-3 w-3 mr-1" />
-                        Email
+                        <Instagram className="h-3 w-3 mr-1" />
+                        Instagram
                       </Button>
                     </div>
                   </CardContent>
@@ -514,7 +571,11 @@ export default function TeamPage() {
         {/* Team Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { number: totalMembers.toString(), label: "Total Anggota", icon: "👥" },
+            {
+              number: totalMembers.toString(),
+              label: "Total Anggota",
+              icon: "👥",
+            },
             { number: "4", label: "Divisi", icon: "🏛️" },
             { number: "10", label: "Fakultas", icon: "🎓" },
             { number: "1", label: "Bulan Program", icon: "📅" },
@@ -524,7 +585,9 @@ export default function TeamPage() {
               className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/80 transition-all duration-300 hover:shadow-lg"
             >
               <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-1">{stat.number}</div>
+              <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-1">
+                {stat.number}
+              </div>
               <div className="text-sm text-gray-600">{stat.label}</div>
             </div>
           ))}
@@ -532,21 +595,27 @@ export default function TeamPage() {
 
         {/* Call to Action */}
         <div className="mt-16 text-center bg-gradient-to-r from-green-500 to-blue-500 rounded-3xl p-8 text-white">
-  <h3 className="text-2xl font-bold mb-4">Ikuti Kegiatan Kami</h3>
-  <p className="text-lg mb-6 opacity-90">
-    Dapatkan informasi terbaru dan dokumentasi kegiatan melalui Instagram resmi KKN 81 Sendangmulyo.
-  </p>
-  <Button
-    size="lg"
-    variant="secondary"
-    className="bg-white text-green-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-300"
-    onClick={() => window.open("https://www.instagram.com/kkn81_sendangmulyo", "_blank")}
-  >
-    Instagram Kami
-    <Instagram className="ml-2 h-5 w-5" />
-  </Button>
-</div>
+          <h3 className="text-2xl font-bold mb-4">Ikuti Kegiatan Kami</h3>
+          <p className="text-lg mb-6 opacity-90">
+            Dapatkan informasi terbaru dan dokumentasi kegiatan melalui
+            Instagram resmi KKN 81 Sendangmulyo.
+          </p>
+          <Button
+            size="lg"
+            variant="secondary"
+            className="bg-white text-green-600 hover:bg-gray-100 transform hover:scale-105 transition-all duration-300"
+            onClick={() =>
+              window.open(
+                "https://www.instagram.com/kkn81_sendangmulyo",
+                "_blank"
+              )
+            }
+          >
+            Instagram Kami
+            <Instagram className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
       </div>
     </div>
-  )
+  );
 }
