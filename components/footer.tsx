@@ -100,7 +100,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center text-sm text-gray-400">
                 <Phone className="h-4 w-4 mr-2 flex-shrink-0" />
-                <span>+62 812-3456-7890</span>
+                <span>+628122885304</span>
               </div>
               <div className="flex items-center text-sm text-gray-400">
                 <Instagram className="h-4 w-4 mr-2 flex-shrink-0" />
