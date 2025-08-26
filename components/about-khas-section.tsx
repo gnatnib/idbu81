@@ -26,7 +26,7 @@ const khasFeatures = [
     borderColor: "border-green-200",
     bgColor: "bg-green-50",
     details: [
-      "Sertifikasi halal resmi dari MUI",
+      "Sertifikasi halal resmi dari BPJPH",
       "Bahan baku terjamin kehalalannya",
       "Proses produksi sesuai standar halal",
       "Pengawasan berkala oleh tim ahli",
