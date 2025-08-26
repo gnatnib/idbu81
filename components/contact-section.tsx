@@ -122,7 +122,7 @@ export default function ContactSection() {
           <div className="space-y-6">
             <div className="text-center lg:text-left mb-8">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Informasi Kontak
+                Informasi Kontak KKN-T IDBU 81 Universitas Diponegoro
               </h3>
               <p className="text-white/90">
                 Berbagai cara untuk menghubungi tim Zona KHAS
