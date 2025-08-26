@@ -28,6 +28,7 @@ export default function Navbar() {
     { name: "Profil Kelurahan", href: "#village" },
     { name: "UMKM", href: "#umkm" },
     { name: "Tim Kami", href: "#team" },
+    { name: "Artikel", href: "#articles" },
     { name: "Peta", href: "#map" },
     { name: "Kontak", href: "#contact" },
   ]

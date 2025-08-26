@@ -7,6 +7,7 @@ import AboutKhasSection from "@/components/about-khas-section"
 import VillageProfileSection from "@/components/village-profile-section"
 import UmkmSection from "@/components/umkm-section"
 import TeamSection from "@/components/team-section"
+import ArticleSection from "@/components/article-section"
 import MapSection from "@/components/map-section"
 import ContactSection from "@/components/contact-section"
 
@@ -43,6 +44,7 @@ export default function HomePage() {
         <VillageProfileSection />
         <UmkmSection />
         <TeamSection />
+        <ArticleSection />
         <MapSection />
         <ContactSection />
       </div>
