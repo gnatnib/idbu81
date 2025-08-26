@@ -91,7 +91,7 @@ const umkmData: UmkmData[] = [
   },
   {
     id: 5,
-    name: "Nasi Goreng dan Gongso Pak Kas",
+    name: "Spesial Nasi Goreng Pak Kas",
     category: "Makanan Tradisional",
     description:
       "Nasi goreng dan gongso dengan berbagai pilihan lauk seperti ayam, babat, paru, telur, dan iso. Gongso merupakan makanan khas dengan kuah yang gurih dan bumbu yang kaya rempah. Semua dimasak dengan api besar untuk hasil yang sempurna.",
@@ -107,7 +107,7 @@ const umkmData: UmkmData[] = [
   },
   {
     id: 6,
-    name: "Sate Cak JUNED",
+    name: "Sate Madura Cak JUNED",
     category: "Makanan Bakar",
     description:
       "Sate ayam dan kambing dengan bumbu kacang spesial dan sambal yang pedas menggigit. Daging dipilih yang segar dan empuk, dibakar dengan arang untuk aroma yang harum. Dilengkapi dengan lontong, timun, dan bawang merah.",
