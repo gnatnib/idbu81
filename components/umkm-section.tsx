@@ -27,7 +27,7 @@ interface UmkmData {
 const umkmData: UmkmData[] = [
   {
     id: 1,
-    name: "Nasi Goreng Tegal Bang Awi '77'",
+    name: "Nasi Goreng Tegal Mas Awi '77'",
     category: "Makanan Tradisional",
     description:  
       "Nasi goreng khas Tegal dengan cita rasa autentik dan bumbu yang meresap sempurna. Dilengkapi dengan berbagai pilihan menu seperti kwetiaw, mie goreng, cap cai, dan bihun goreng. Menggunakan bahan-bahan segar dengan teknik masak tradisional Tegal.",
