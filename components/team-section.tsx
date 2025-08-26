@@ -1,4 +1,5 @@
 "use client";
+import { createPortal } from "react-dom";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -273,29 +274,37 @@ export default function TeamSection() {
           </div>
           <div>
             <img
-              src="/images/timkkn.jpg"
+              src="/images/fotobendungan.jpg"
               alt="Tim KKN UNDIP Sendangmulyo"
               onClick={() => setIsModalOpen(true)}
               className="cursor-pointer rounded-2xl shadow-lg w-full h-[400px] object-cover transition-transform duration-300 hover:scale-105 hover:shadow-xl"
             />
           </div>
-          {isModalOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center">
-              <div className="relative">
-                <button
-                  className="absolute top-2 right-2 bg-white text-gray-800 rounded-full p-2 shadow hover:bg-gray-100 transition"
-                  onClick={() => setIsModalOpen(false)}
-                >
-                  ✕
-                </button>
-                <img
-                  src="/images/timkkn.jpg"
-                  alt="Tim KKN Full View"
-                  className="max-w-full max-h-[90vh] rounded-xl shadow-2xl border-4 border-white"
-                />
-              </div>
-            </div>
-          )}
+          {isModalOpen &&
+  createPortal(
+    <div
+      className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4"
+      onClick={() => setIsModalOpen(false)}
+    >
+      <div
+        className="relative max-w-[95vw] max-h-[95vh]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          className="absolute -top-4 -right-4 bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-gray-100 transition-all duration-200 z-10"
+          onClick={() => setIsModalOpen(false)}
+        >
+          ×
+        </button>
+        <img
+          src="/images/fotobendungan.jpg"
+          alt="Tim KKN Full View"
+          className="w-full h-full object-contain rounded-xl shadow-2xl border-4 border-white max-w-[90vw] max-h-[90vh]"
+        />
+      </div>
+    </div>,
+    document.body
+  )}
         </div>
 
         {/* Video Documentation Section */}
