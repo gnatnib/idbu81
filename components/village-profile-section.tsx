@@ -15,7 +15,7 @@ export default function VillageProfileSection() {
     <section id="village" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Profil Desa</Badge>
+          <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Profil Kelurahan</Badge>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Klipang, Kelurahan Sendangmulyo</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Sebuah kelurahan yang kaya akan potensi kuliner dan UMKM, terletak strategis di jantung kota dengan akses
@@ -26,7 +26,7 @@ export default function VillageProfileSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <img
-              src="/images/umkmbunderanklipang.png"
+              src="/images/kantorlurah.jpg"
               alt="Kelurahan Sendangmulyo"
               className="rounded-2xl shadow-lg w-full h-[400px] object-cover"
             />

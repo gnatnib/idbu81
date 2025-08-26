@@ -25,7 +25,7 @@ export default function Navbar() {
   const navItems = [
     { name: "Beranda", href: "#hero" },
     { name: "Program Kami", href: "#khas" },
-    { name: "Profil Desa", href: "#village" },
+    { name: "Profil Kelurahan", href: "#village" },
     { name: "UMKM", href: "#umkm" },
     { name: "Tim Kami", href: "#team" },
     { name: "Peta", href: "#map" },
