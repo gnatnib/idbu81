@@ -190,30 +190,31 @@ export default function TeamSection() {
         </div>
 
         {/* Tooltip for this calendar */}
-        {hoveredDate && hoveredDate.month === month && (
-          <div
-            className="fixed z-50 bg-gray-900 text-white p-4 rounded-lg shadow-2xl max-w-xs pointer-events-none transform -translate-x-1/2 -translate-y-full"
-            style={{
-              left: `${hoveredDate.x}px`,
-              top: `${hoveredDate.y - 10}px`,
-            }}
-          >
-            <div className="flex items-center mb-2">
-              {hoveredDate.eventInfo.type === "start" ? (
-                <MapPin className="h-4 w-4 text-green-400 mr-2" />
-              ) : (
-                <Calendar className="h-4 w-4 text-blue-400 mr-2" />
-              )}
-              <h4 className="font-bold text-sm">
-                {hoveredDate.eventInfo.title}
-              </h4>
-            </div>
-            <p className="text-xs text-gray-300">
-              {hoveredDate.eventInfo.description}
-            </p>
-            <div className="absolute bottom-0 left-1/2 transform translate-y-1/2 -translate-x-1/2 rotate-45 w-2 h-2 bg-gray-900"></div>
-          </div>
+        {hoveredDate && hoveredDate.month === month &&
+  createPortal(
+    <div
+      className="fixed z-[9999] bg-gray-900 text-white p-4 rounded-lg shadow-2xl max-w-xs pointer-events-none transform -translate-x-1/2 -translate-y-full"
+      style={{
+        left: `${hoveredDate.x}px`,
+        top: `${hoveredDate.y - 10}px`,
+      }}
+    >
+      <div className="flex items-center mb-2">
+        {hoveredDate.eventInfo.type === "start" ? (
+          <MapPin className="h-4 w-4 text-green-400 mr-2" />
+        ) : (
+          <Calendar className="h-4 w-4 text-blue-400 mr-2" />
         )}
+        <h4 className="font-bold text-sm">{hoveredDate.eventInfo.title}</h4>
+      </div>
+      <p className="text-xs text-gray-300">
+        {hoveredDate.eventInfo.description}
+      </p>
+      <div className="absolute bottom-0 left-1/2 transform translate-y-1/2 -translate-x-1/2 rotate-45 w-2 h-2 bg-gray-900"></div>
+    </div>,
+    document.body
+  )
+}
       </div>
     );
   };
