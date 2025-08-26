@@ -11,7 +11,26 @@ export const metadata: Metadata = {
   description:
     "Program KKN untuk pengembangan Zona KHAS di Klipang, Kelurahan Sendangmulyo. Memberdayakan UMKM kuliner dengan standar halal, aman, dan sehat.",
   keywords: "KKN, Zona KHAS, UMKM, Kuliner Halal, Sendangmulyo, Klipang",
-    generator: 'v0.dev'
+  icons: {
+    icon: [
+      {
+        url: "/images/logokknbgerase.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/images/logokknbgerase.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
+    apple: {
+      url: "/images/logokknbgerase.png",
+      sizes: "180x180",
+      type: "image/png",
+    },
+    shortcut: "/images/logokknbgerase.png",
+  },
 }
 
 export default function RootLayout({
