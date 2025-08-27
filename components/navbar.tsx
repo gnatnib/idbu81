@@ -67,16 +67,16 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-14 md:h-16">
+        <div className="flex justify-between items-center h-14 lg:h-16">
           <div className="flex items-center space-x-3 cursor-pointer" onClick={handleHomeClick}>
             <img
               src="/images/logokknbgerase.png"
               alt="Logo KKN UNDIP"
-              className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              className="w-10 h-10 lg:w-12 lg:h-12 object-contain"
             />
             <div className="flex flex-col">
               <span
-                className={`font-bold text-base md:text-lg leading-tight transition-colors duration-300 ${
+                className={`font-bold text-sm sm:text-base lg:text-lg leading-tight transition-colors duration-300 ${
                   isTeamPage || isScrolled ? "text-gray-900" : "text-white"
                 }`}
               >
@@ -92,13 +92,13 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Now shows at xl breakpoint (1280px+) */}
+          <div className="hidden xl:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className={`font-medium transition-colors duration-300 ${
+                className={`font-medium text-sm transition-colors duration-300 ${
                   isTeamPage || isScrolled ? "text-gray-700 hover:text-green-600" : "text-white/90 hover:text-white"
                 }`}
               >
@@ -107,8 +107,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu button - Now shows up to xl breakpoint */}
+          <div className="xl:hidden">
             <Button
               variant="ghost"
               size="sm"
@@ -117,20 +117,20 @@ export default function Navbar() {
                 isTeamPage || isScrolled ? "text-gray-900 hover:bg-gray-100" : "text-white hover:bg-white/10"
               }`}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile/Tablet Navigation - Shows up to xl breakpoint */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-sm border-t border-gray-200 rounded-b-lg mx-4">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-green-600 transition-colors duration-200"
+                  className="block w-full text-left px-3 py-2 text-sm sm:text-base text-gray-700 hover:text-green-600 hover:bg-green-50 rounded transition-colors duration-200"
                 >
                   {item.name}
                 </button>
